@@ -1,0 +1,40 @@
+{
+    "postPlant": {
+        "aDefault": [
+            {
+                "ability": "viper-molly",
+                "name": "Lineup name 1 adefault",
+                "description": "Description for lineup 1",
+                "xPixelCoordinate": 0,
+                "yPixelCoordinate": 0,
+                "img": "0"
+            }
+        ],
+        "bDefault": [
+            {
+                "ability": "viper-molly",
+                "name": "Lineup name 1 bdefault",
+                "description": "Description for lineup 1",
+                "xPixelCoordinate": 0,
+                "yPixelCoordinate": 0,
+                "img": "0"
+            }
+        ]
+    },
+    "spikeLocation": {
+        "aDefault": {
+            "name": "A Site Default",
+            "description": "Default plant location for A site.",
+            "xPixelCoordinate": 0,
+            "yPixelCoordinate": 0,
+            "img": "aDefault.png"
+        },
+        "bDefault": {
+            "name": "B Site Default",
+            "description": "Default plant location for B site.",
+            "xPixelCoordinate": 0,
+            "yPixelCoordinate": 0,
+            "img": "bDefault.png"
+        }
+    }
+}

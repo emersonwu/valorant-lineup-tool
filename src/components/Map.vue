@@ -5,6 +5,9 @@
 <script>
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import Markers from "../leaflet_objects/Markers";
+import BindMapLineupData from "../utils/BindMapData";
+
 
 export default {
   name: "Map",
@@ -13,26 +16,30 @@ export default {
       center: [0, 0],
       mapSW: [0, 7680],
       mapNE: [7680, 0],
+      mapDiv: {},
     };
   },
   methods: {
     setupLeafletMap: function () {
-      const mapDiv = L.map("mapContainer").setView(this.center, 2);
+      this.mapDiv = L.map("mapContainer").setView(this.center, 2);
       L.tileLayer("tiles/{z}/{y}/{x}.png", {
         minZoom: 0,
         maxZoom: 5,
         continuousWold: false,
         noWrap: true,
         crs: L.CRS.Simple,
-      }).addTo(mapDiv);
+      }).addTo(this.mapDiv);
 
       // Sets bounds of map
-      mapDiv.setMaxBounds(
+      this.mapDiv.setMaxBounds(
         new L.latLngBounds(
-          mapDiv.unproject(this.mapSW, mapDiv.getMaxZoom()),
-          mapDiv.unproject(this.mapNE, mapDiv.getMaxZoom())
+          this.mapDiv.unproject(this.mapSW, this.mapDiv.getMaxZoom()),
+          this.mapDiv.unproject(this.mapNE, this.mapDiv.getMaxZoom())
         )
       );
+      Markers.getSurveyMarker(this.mapDiv).addTo(this.mapDiv);
+      Markers.getSurveyMarker(this.mapDiv).addTo(this.mapDiv); 
+      BindMapLineupData.getSpikePlantLocationMarkers().addTo(this.mapDiv);
     },
   },
   mounted() {
