@@ -1,3 +1,8 @@
 enum MapType {
-    BIND = 0,
+    BIND,
+    SPLIT,
+    ICEBOX,
+    ASCENT
 }
+
+export default MapType;

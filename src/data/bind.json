@@ -1,40 +1,57 @@
 {
-    "postPlant": {
-        "aDefault": [
-            {
-                "ability": "viper-molly",
-                "name": "Lineup name 1 adefault",
-                "description": "Description for lineup 1",
-                "xPixelCoordinate": 0,
-                "yPixelCoordinate": 0,
-                "img": "0"
-            }
-        ],
-        "bDefault": [
-            {
-                "ability": "viper-molly",
-                "name": "Lineup name 1 bdefault",
-                "description": "Description for lineup 1",
-                "xPixelCoordinate": 0,
-                "yPixelCoordinate": 0,
-                "img": "0"
-            }
-        ]
-    },
-    "spikeLocation": {
-        "aDefault": {
+    "mapKey": "bind",
+    "postPlantLineup": [
+        {
+            "key": "lineup1",
+            "destination": "aDefault",
+            "type": "viper-molly",
+            "name": "Lineup name 1",
+            "description": "Description for lineup 1",
+            "xPixelCoordinate": 0,
+            "yPixelCoordinate": 0,
+            "img": "1"
+        },
+        {
+            "key": "lineup2",
+            "destination": "bDefault",
+            "type": "viper-molly",
+            "name": "Lineup name 2",
+            "description": "Description for lineup 2",
+            "xPixelCoordinate": 0,
+            "yPixelCoordinate": 0,
+            "img": "2"
+        },
+        {
+            "key": "lineup3",
+            "destination": "bDefault",
+            "type": "viper-molly",
+            "name": "Lineup name 3",
+            "description": "Description for lineup 3",
+            "xPixelCoordinate": 0,
+            "yPixelCoordinate": 0,
+            "img": "3"
+        }
+    ],
+    "spikeLocations": [
+        {
+            "key": "aDefault",
+            "destination": "",
+            "type": "spike",
             "name": "A Site Default",
             "description": "Default plant location for A site.",
             "xPixelCoordinate": 0,
             "yPixelCoordinate": 0,
             "img": "aDefault.png"
         },
-        "bDefault": {
+        {
+            "key": "bDefault",
+            "destination": "",
+            "type": "spike",
             "name": "B Site Default",
             "description": "Default plant location for B site.",
             "xPixelCoordinate": 0,
             "yPixelCoordinate": 0,
             "img": "bDefault.png"
         }
-    }
+    ]
 }

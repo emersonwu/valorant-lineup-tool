@@ -1,4 +1,4 @@
-import L from "leaflet";
+const L = require('leaflet');
 
 export default class Icons {
     static spike = L.icon({

@@ -1,33 +1,64 @@
 <template>
-  <div id="mapContainer" />
+  <l-map
+    ref="mapRef"
+    style="height: 1200px"
+    :zoom="zoom"
+    :center="center"
+    :crs="crs"
+    :minZoom="minZoom"
+    :maxZoom="maxZoom"
+    :maxBounds="imageBounds"
+  >
+    <l-tile-layer :url="url" :noWrap="true"></l-tile-layer>
+    <l-marker
+      :lat-lng="markerLatLng"
+      :icon="icon"
+      @click="alert('hello')"
+    ></l-marker>
+  </l-map>
 </template>
 
 <script>
-import "leaflet/dist/leaflet.css";
+import { CRS } from "leaflet";
 import L from "leaflet";
-import Markers from "../leaflet_objects/Markers";
-import BindMapLineupData from "../utils/BindMapData";
+import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
+import "leaflet/dist/leaflet.css";
 
+import Markers from "../leaflet_objects/Markers";
+import MapDataManager from "../utils/MapDataManager";
+import Icons from "../leaflet_objects/Icons";
 
 export default {
   name: "Map",
+  components: {
+    LMap,
+    LTileLayer,
+    LMarker,
+  },
   data() {
     return {
-      center: [0, 0],
-      mapSW: [0, 7680],
-      mapNE: [7680, 0],
-      mapDiv: {},
+      zoom: 2,
+      center: [-128, 128],
+      mapSW: [-1000, 9192],
+      mapNE: [9192, -1000],
+      minZoom: 0,
+      maxZoom: 5,
+      url: "tiles/{z}/{y}/{x}.png",
+      crs: CRS.Simple,
+      markerLatLng: [-128, 128],
+      icon: Icons.spike,
+      imageBounds: {},
     };
   },
   methods: {
     setupLeafletMap: function () {
-      this.mapDiv = L.map("mapContainer").setView(this.center, 2);
+      this.mapDiv = new L.map("mapContainer").setView(this.center, 2);
       L.tileLayer("tiles/{z}/{y}/{x}.png", {
         minZoom: 0,
         maxZoom: 5,
         continuousWold: false,
         noWrap: true,
-        crs: L.CRS.Simple,
+        crs: CRS.Simple,
       }).addTo(this.mapDiv);
 
       // Sets bounds of map
@@ -38,12 +69,18 @@ export default {
         )
       );
       Markers.getSurveyMarker(this.mapDiv).addTo(this.mapDiv);
-      Markers.getSurveyMarker(this.mapDiv).addTo(this.mapDiv); 
-      BindMapLineupData.getSpikePlantLocationMarkers().addTo(this.mapDiv);
+      Markers.getSurveyMarker(this.mapDiv).addTo(this.mapDiv);
+      MapDataManager.getSpikePlantLocationMarkers().addTo(this.mapDiv);
     },
   },
   mounted() {
-    this.setupLeafletMap();
+    // this.setupLeafletMap();
+    this.$nextTick(() => {
+      var map = this.$refs.mapRef.mapObject;
+      var southWest = map.unproject(this.mapSW, map.getMaxZoom());
+      var northEast = map.unproject(this.mapNE, map.getMaxZoom());
+      this.imageBounds = new L.LatLngBounds(southWest, northEast);
+    });
   },
 };
 </script>
