@@ -7,5 +7,4 @@ export default class LocationMarker {
     constructor(locationInfo: LocationInfo) {
         this.locationInfo = locationInfo;
     }
-
 }

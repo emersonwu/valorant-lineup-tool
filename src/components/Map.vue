@@ -1,20 +1,15 @@
 <template>
   <l-map
+    class="map"
     ref="mapRef"
-    style="height: 1200px"
     :zoom="zoom"
     :center="center"
     :crs="crs"
     :minZoom="minZoom"
     :maxZoom="maxZoom"
-    :maxBounds="imageBounds"
   >
     <l-tile-layer :url="url" :noWrap="true"></l-tile-layer>
-    <l-marker
-      :lat-lng="markerLatLng"
-      :icon="icon"
-      @click="alert('hello')"
-    ></l-marker>
+    <l-marker :lat-lng="markerLatLng" :icon="icon"></l-marker>
   </l-map>
 </template>
 
@@ -86,9 +81,8 @@ export default {
 </script>
 
 <style scoped>
-#mapContainer {
+.map {
   width: 100%;
-  height: 100vh;
   background: white;
 }
 </style>
