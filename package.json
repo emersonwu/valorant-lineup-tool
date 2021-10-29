@@ -12,12 +12,14 @@
     "@types/geojson": "^7946.0.8",
     "@types/leaflet": "^1.7.5",
     "core-js": "^3.6.5",
+    "es6-promise": "^4.2.8",
     "install": "^0.13.0",
     "leaflet": "^1.7.1",
     "npm": "^8.1.0",
     "vue": "^2.6.11",
     "vue2-leaflet": "^2.7.1",
-    "vuetify": "^2.5.10"
+    "vuetify": "^2.5.10",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.18.0",

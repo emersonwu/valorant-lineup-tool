@@ -48,6 +48,8 @@ import Map from "./components/Map.vue";
 import LocationInfoPopup from "./components/LocationInfoPopup.vue";
 import LocationMarker from "./interfaces/LocationMarker";
 import bindMapData from "./data/bind.json";
+import MapType from "./enums/MapType";
+import { FilterMutations } from "./store/filter/mutations";
 
 export default Vue.extend({
   name: "App",
@@ -62,6 +64,26 @@ export default Vue.extend({
       bindMapData.postPlantLineup[0]
     ) as LocationMarker,
   }),
+  computed: {
+    helloMessage: {
+      get() {
+        return this.$store.state.helloMessage;
+      },
+    },
+    mapFilter: {
+      get(): MapType {
+        return this.$store.getters.getMapFilter;
+      },
+      set(value: MapType): void {
+        this.$store.commit(FilterMutations.SET_MAP_FILTER, value);
+      },
+    },
+  },
+  mounted() {
+    console.log(this.mapFilter);
+    this.mapFilter = MapType.ICEBOX;
+    console.log(this.mapFilter);
+  },
 });
 </script>
 

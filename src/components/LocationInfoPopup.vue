@@ -16,6 +16,7 @@
         <v-card-actions>
           <v-btn color="primary" text @click="dialog = false"> Close </v-btn>
         </v-card-actions>
+        <v-card-title class="text-h5 grey lighten-2"> </v-card-title>
       </v-card>
     </v-dialog>
   </div>

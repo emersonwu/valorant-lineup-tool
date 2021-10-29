@@ -45,6 +45,7 @@ export default {
       imageBounds: {},
     };
   },
+
   methods: {
     setupLeafletMap: function () {
       this.mapDiv = new L.map("mapContainer").setView(this.center, 2);
