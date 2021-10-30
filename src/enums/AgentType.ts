@@ -1,7 +1,8 @@
 enum AgentType {
-    VIPER,
-    KILLJOY,
-    KAYO,
+    VIPER = "VIPER",
+    KILLJOY = "KILLJOY",
+    KAYO = "KAYO",
+    BRIMSTONE = "BRIMSTONE",
 }
 
 export default AgentType;

@@ -2,9 +2,9 @@
 <template>
   <v-app>
     <app-header />
-    <location-info-popup :isOpen="true" :locationMarker="location" />
     <app-nav-drawer />
     <Map />
+    <location-info-popup :isOpen="true" :locationMarker="location" />
   </v-app>
 </template>
 
@@ -16,7 +16,7 @@ import LocationMarker from "./interfaces/LocationMarker";
 import bindMapData from "./data/bind.json";
 import MapType from "./enums/MapType";
 import { FilterMutations } from "./store/filter/mutations";
-import AppNavDrawer from "./components/AppNavDrawer.vue";
+import AppNavDrawer from "./components/AppNavDrawer/AppNavDrawer.vue";
 import AppHeader from "./components/AppHeader.vue";
 import { AppMutations } from "./store/app/mutations";
 
@@ -61,3 +61,10 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style>
+@font-face {
+  font-family: "Valorant";
+  src: local("Valorant"), url(./fonts/Valorant-Font.ttf) format("truetype");
+}
+</style>

@@ -1,6 +1,5 @@
 <template>
   <l-map
-    class="map"
     ref="mapRef"
     :zoom="zoom"
     :center="center"
@@ -81,8 +80,9 @@ export default {
 };
 </script>
 
-<style scoped>
-.map {
+<style lang="scss" scoped>
+.vue2leaflet-map {
+  z-index: 1;
   width: 100%;
   background: white;
 }
