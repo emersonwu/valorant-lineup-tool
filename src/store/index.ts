@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Vuex, { StoreOptions } from 'vuex';
 import { RootState } from './types';
 import { filter } from '@/store/filter/index'
+import { app } from '@/store/app/index'
+
 Vue.use(Vuex);
 
 const store: StoreOptions<RootState> = {
@@ -10,6 +12,7 @@ const store: StoreOptions<RootState> = {
     },
     modules: {
         filter,
+        app,
     }
 }
 
