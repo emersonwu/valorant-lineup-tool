@@ -32,7 +32,7 @@
     <!-- Hero -->
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title class="nav-drawer-header2">Hero</v-list-item-title>
+        <v-list-item-title class="nav-drawer-header2">Agent</v-list-item-title>
         <agent-filter />
       </v-list-item-content>
     </v-list-item>
