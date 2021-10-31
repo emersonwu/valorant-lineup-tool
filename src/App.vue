@@ -54,11 +54,6 @@ export default Vue.extend({
       },
     },
   },
-  mounted() {
-    console.log(this.mapFilter);
-    this.mapFilter = MapType.ICEBOX;
-    console.log(this.mapFilter);
-  },
 });
 </script>
 

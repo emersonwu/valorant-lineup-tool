@@ -48,6 +48,25 @@
       </v-list-item-content>
     </v-list-item>
     <v-divider></v-divider>
+
+    <!-- Ability -->
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title class="nav-drawer-header2"
+          >Temp Debug output</v-list-item-title
+        >
+        <v-list-item-title class="nav-drawer-header3">
+          Map Selected: {{ getMapSelected }}</v-list-item-title
+        >
+        <v-list-item-title class="nav-drawer-header3">
+          Agent Selected: {{ getAgentSelected }}</v-list-item-title
+        >
+        <v-list-item-title class="nav-drawer-header3">
+          Ability Selected: {{ getAbilitySelected }}</v-list-item-title
+        >
+      </v-list-item-content>
+    </v-list-item>
+    <v-divider></v-divider>
   </v-navigation-drawer>
 </template>
 
@@ -58,6 +77,9 @@ import AgentFilter from "./AgentFilter.vue";
 import AbilityFilter from "./AbilityFilter.vue";
 
 import Vue from "vue";
+import LineupType from "@/enums/LineupType";
+import AgentType from "@/enums/AgentType";
+import MapType from "@/enums/MapType";
 
 export default Vue.extend({
   name: "AppNavDrawer",
@@ -75,6 +97,30 @@ export default Vue.extend({
         this.$store.commit(AppMutations.SET_IS_NAV_BAR_OPEN, value);
       },
     },
+    // Below for debug testing
+    getMapSelected() {
+      let mapSelected = this.$store.getters.getMapFilter;
+      if (mapSelected) {
+        return MapType[mapSelected];
+      }
+      return "Nothing selected";
+    },
+    getAgentSelected() {
+      let agentSelected = this.$store.getters.getAgentFilter;
+      if (agentSelected) {
+        return AgentType[agentSelected];
+      }
+      return "Nothing selected";
+    },
+    getAbilitySelected() {
+      let abilitySelected = this.$store.getters.getLineupTypeFilter;
+      console.log(abilitySelected);
+      if (abilitySelected) {
+        return LineupType[abilitySelected];
+      }
+      return "Nothing selected";
+    },
+    // Above for debug testing
   },
 });
 </script>
@@ -88,5 +134,8 @@ export default Vue.extend({
 }
 .nav-drawer-header2 {
   font-size: 2em !important;
+}
+.nav-drawer-header3 {
+  font-size: 1em !important;
 }
 </style>

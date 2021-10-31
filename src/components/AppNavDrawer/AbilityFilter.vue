@@ -93,10 +93,6 @@ export default Vue.extend({
   },
   watch: {
     agentFilter: function () {
-      console.log("agent Changed to:", this.$store.getters.getAgentFilter);
-      console.log("current abilityFilter:", this.abilityFilter);
-      console.log("current agentFilter:", this.agentFilter);
-
       // If no agent is selected clear the ability filter
       if (
         this.agentFilter == null ||
@@ -106,8 +102,6 @@ export default Vue.extend({
         this.abilityFilter = null;
         this.model = null;
       }
-      console.log("post abilityFilter:", this.abilityFilter);
-      console.log("post agentFilter:", this.agentFilter);
     },
   },
   methods: {
