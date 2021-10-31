@@ -8,9 +8,9 @@ import { mutations } from "./mutations";
 import { FilterState } from "./types";
 
 const state: FilterState = {
-    mapFilter: MapType.BIND,
-    agentFilter: AgentType.VIPER,
-    lineupTypeFilter: {} as LineupType[],
+    mapFilter: null,
+    agentFilter: null,
+    lineupTypeFilter: null,
 }
 
 export const filter: Module<FilterState, RootState> = {

@@ -12,7 +12,7 @@ export const getters: GetterTree<FilterState, RootState> = {
     getAgentFilter(state): AgentType {
         return state.agentFilter;
     },
-    getLineupTypeFilter(state): LineupType[] {
+    getLineupTypeFilter(state): LineupType {
         return state.lineupTypeFilter;
     }
 }

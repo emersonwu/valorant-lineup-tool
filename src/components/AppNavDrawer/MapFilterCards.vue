@@ -18,7 +18,7 @@
           <v-icon
             v-if="active"
             color="white"
-            size="48"
+            size="60"
             v-text="'mdi-check-circle-outline'"
           ></v-icon>
         </v-scale-transition>

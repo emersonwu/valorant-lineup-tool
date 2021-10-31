@@ -5,5 +5,5 @@ import MapType from "@/enums/MapType";
 export interface FilterState {
     mapFilter: MapType;
     agentFilter: AgentType;
-    lineupTypeFilter: LineupType[];
+    lineupTypeFilter: LineupType;
 }

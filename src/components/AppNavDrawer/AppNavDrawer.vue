@@ -37,21 +37,34 @@
       </v-list-item-content>
     </v-list-item>
     <v-divider></v-divider>
+
+    <!-- Ability -->
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title class="nav-drawer-header2"
+          >Ability</v-list-item-title
+        >
+        <ability-filter />
+      </v-list-item-content>
+    </v-list-item>
+    <v-divider></v-divider>
   </v-navigation-drawer>
 </template>
 
 <script lang="ts">
 import { AppMutations } from "@/store/app/mutations";
-import AgentFilter from "./AgentFilter.vue";
 import MapFilter from "./MapFilter.vue";
+import AgentFilter from "./AgentFilter.vue";
+import AbilityFilter from "./AbilityFilter.vue";
 
 import Vue from "vue";
 
 export default Vue.extend({
   name: "AppNavDrawer",
   components: {
-    AgentFilter,
     MapFilter,
+    AgentFilter,
+    AbilityFilter,
   },
   computed: {
     isNavBarOpen: {

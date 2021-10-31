@@ -5,16 +5,17 @@
       :img="active ? selectedImgPath : deselectedImgPath"
       dark
       class="ma-4"
-      height="200"
-      width="100"
+      height="150"
+      width="150"
       @click="toggle"
+      :disabled="disabled"
     >
       <v-row class="fill-height" align="center" justify="center">
         <v-scale-transition>
           <v-icon
             v-if="active"
             color="white"
-            size="55"
+            size="65"
             v-text="'mdi-check-circle-outline'"
           ></v-icon>
         </v-scale-transition>
@@ -24,31 +25,31 @@
 </template>
 
 <script lang="ts">
-import AgentType from "@/enums/AgentType";
-import { FilterMutations } from "@/store/filter/mutations";
 import Vue from "vue";
 
 export default Vue.extend({
-  name: "AgentFilterCards",
+  name: "AbilityFilterCards",
   props: {
     selectedImgPath: {
       type: String,
-      required: true,
+      required: false,
     },
     deselectedImgPath: {
       type: String,
-      required: true,
+      required: false,
     },
-  },
-  computed: {
-    agentFilter: {
-      get(): boolean {
-        return this.$store.getters.getAgentFilter;
-      },
-      set(value: AgentType): void {
-        this.$store.commit(FilterMutations.SET_AGENT_FILTER, value);
-      },
+    disabled: {
+      type: Boolean,
+      required: false,
     },
   },
 });
 </script>
+
+<style>
+.ability-text {
+  font-family: "Valorant";
+  font-size: 1.3em !important;
+  color: #ffffff;
+}
+</style>
