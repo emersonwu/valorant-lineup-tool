@@ -7,24 +7,12 @@
         </v-btn>
       </template>
 
-      <v-card>
-        <v-img
-          :src="locationMarker.locationInfo.img"
-          max-height="80vh"
-          contain
-        ></v-img>
-        <v-card-actions>
-          <v-btn color="primary" text @click="dialog = false"> Close </v-btn>
-        </v-card-actions>
-        <v-card-title class="text-h5 grey lighten-2"> </v-card-title>
-      </v-card>
+      <LocationGallary />
     </v-dialog>
   </div>
 </template>
 
 <script>
-import LocationMarker from "../interfaces/LocationMarker";
-
 export default {
   name: "LocationInfoPopup",
   data() {
@@ -34,7 +22,7 @@ export default {
   },
   props: {
     locationMarker: {
-      type: LocationMarker,
+      type: Array,
       required: true,
     },
     isOpen: {

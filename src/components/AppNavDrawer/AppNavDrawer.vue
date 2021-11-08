@@ -4,7 +4,7 @@
     absolute
     temporary
     width="100%"
-    style="max-width: 1000px"
+    style="max-width: 650px"
   >
     <!-- Header -->
     <v-list-item>

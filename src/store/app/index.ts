@@ -1,6 +1,3 @@
-import AgentType from "@/enums/AgentType";
-import LineupType from "@/enums/LineupType";
-import MapType from "@/enums/MapType";
 import LocationInfo from "@/interfaces/LocationInfo";
 import { Module } from "vuex";
 import { RootState } from "../types";

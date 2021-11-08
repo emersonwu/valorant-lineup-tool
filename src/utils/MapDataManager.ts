@@ -1,21 +1,22 @@
 import LocationInfo from '../interfaces/LocationInfo'
 import MapData from '../interfaces/MapData'
-import MapType from '../enums/MapType'
+import MapType from '@/enums/MapType'
 
 // Map imports
 import bindMapData from '../data/bind.json'
-const L = require('leaflet');
-
+import Coordinate from '@/interfaces/Coordinate';
 
 export default class MapDataManager {
     mapType: MapType;
     mapJson: MapData;
-    spikeLocations: LocationInfo[] = [];
+    locations: Map<string, LocationInfo> = new Map();
+    coordinates: Map<string, Coordinate> = new Map();
 
     constructor(mapType: MapType) {
         this.mapType = mapType;
         this.mapJson = this.getMapDataFromJson(mapType);
-        this.spikeLocations = this.mapJson.spikeLocations;
+        this.setLocations();
+        this.setCoordinates();
     }
 
     private getMapDataFromJson(mapType: MapType): MapData {
@@ -26,22 +27,27 @@ export default class MapDataManager {
             default:
                 console.log(`Maptype of ${mapType} is not a valid or configured map type.`);
                 // To prevent errors for now
-                return bindMapData as MapData;
+                return bindMapData;
         }
     }
 
-    public setSpikeLocations(): void {
-        console.log(this.mapJson);
-        for(const location in this.mapJson.spikeLocations);
-        this.spikeLocations = this.mapJson.spikeLocations;
+    public setLocations(): void {
+        this.mapJson.locations.forEach((locationInfo) => {
+            this.locations.set(locationInfo.key, locationInfo)
+        })
     }
 
-    public getPostLineups(): LocationInfo[] {
-        return this.mapJson.postPlantLineup;
+    public setCoordinates(): void {
+        this.mapJson.coordinates.forEach((coordinate) => {
+            this.coordinates.set(coordinate.key, coordinate)
+        })
     }
 
-    public getMapKey(): string {
-        return this.mapJson.mapKey;
+    public getViperMollys(): string[] {
+        return this.mapJson.viperMollys;
     }
 
+    public getStandardMollys(): string[] {
+        return this.mapJson.standardMollys;
+    }
 }

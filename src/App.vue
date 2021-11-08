@@ -3,40 +3,99 @@
   <v-app>
     <app-header />
     <app-nav-drawer />
-    <Map />
-    <location-info-popup :isOpen="true" :locationMarker="location" />
+    <interactive-map />
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import Map from "./components/Map.vue";
-import LocationInfoPopup from "./components/LocationInfoPopup.vue";
-import LocationMarker from "./interfaces/LocationMarker";
-import bindMapData from "./data/bind.json";
+import InteractiveMap from "./components/InteractiveMap.vue";
 import MapType from "./enums/MapType";
 import { FilterMutations } from "./store/filter/mutations";
 import AppNavDrawer from "./components/AppNavDrawer/AppNavDrawer.vue";
 import AppHeader from "./components/AppHeader.vue";
 import { AppMutations } from "./store/app/mutations";
+import MapDataManager from "./utils/MapDataManager";
+import LineupLocation from "./interfaces/LineupLocation";
+import LineupType from "./enums/LineupType";
+import LocationInfo from "./interfaces/LocationInfo";
+import Coordinate from "./interfaces/Coordinate";
 
 export default Vue.extend({
   name: "App",
 
   components: {
-    LocationInfoPopup,
-    Map,
     AppNavDrawer,
     AppHeader,
+    InteractiveMap,
   },
 
-  data: () => ({
-    location: new LocationMarker(
-      bindMapData.postPlantLineup[0]
-    ) as LocationMarker,
-  }),
-
+  data: () => ({}),
+  methods: {
+    getMapLocations(maptype: MapType): void {
+      switch (maptype) {
+        case MapType.BIND:
+          break;
+        default:
+          return;
+      }
+    },
+  },
   computed: {
+    getMapManager(): MapDataManager {
+      return new MapDataManager(this.getMapLocations(this.mapFilter));
+    },
+    getLineupLocations(): LineupLocation[] {
+      let lineupLoationsMap: Map<string, LineupLocation> = new Map();
+      let mapMapManger: MapDataManager = this.getMapManager;
+      // switch (this.abilityFilter) {
+      // case LineupType.VIPER_MOLLY:
+      // TODO: Split logic to helper method
+      for (var key in mapMapManger.getViperMollys) {
+        let location: LocationInfo = mapMapManger.locations.get(key);
+        let coordinate: Coordinate = mapMapManger.coordinates.get(
+          location.coordinateKey
+        );
+        if (lineupLoationsMap.has(location.coordinateKey)) {
+          lineupLoationsMap.get(location.coordinateKey).addLineup(location);
+        } else {
+          lineupLoationsMap.set(
+            location.coordinateKey,
+            new LineupLocation(coordinate)
+          );
+        }
+      }
+      // break;
+      // case LineupType.STANDARD_MOLLY:
+      //     for (var key1 in mapMapManger.getViperMollys) {
+      //       let location: LocationInfo = mapMapManger.locations.get(key1);
+      //       let coordinate: Coordinate = mapMapManger.coordinates.get(
+      //         location.coordinateKey
+      //       );
+      //       if (lineupLoationsMap.has(location.coordinateKey)) {
+      //         lineupLoationsMap.get(location.coordinateKey).addLineup(location);
+      //       } else {
+      //         lineupLoationsMap.set(
+      //           location.coordinateKey,
+      //           new LineupLocation(coordinate)
+      //         );
+      //       }
+      //     }
+      //     break;
+      //   default:
+      //     return [];
+      // }
+      // console.log(Array.from(lineupLoationsMap.values()));
+      return Array.from(lineupLoationsMap.values());
+    },
+    abilityFilter: {
+      get(): LineupType {
+        return this.$store.getters.getLineupTypeFilter;
+      },
+      set(value: LineupType): void {
+        this.$store.commit(FilterMutations.SET_LINEUP_TYPE_FILTER, value);
+      },
+    },
     mapFilter: {
       get(): MapType {
         return this.$store.getters.getMapFilter;
@@ -53,6 +112,10 @@ export default Vue.extend({
         this.$store.commit(AppMutations.SET_IS_NAV_BAR_OPEN, value);
       },
     },
+  },
+  mounted() {
+    console.log("inside mounted");
+    console.log("mounted", this.getLineupLocations);
   },
 });
 </script>
