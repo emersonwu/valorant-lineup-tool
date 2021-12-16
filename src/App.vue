@@ -3,7 +3,7 @@
   <v-app>
     <app-header />
     <app-nav-drawer />
-    <interactive-map />
+    <interactive-map :lineupLocations="getLineupLocations" />
   </v-app>
 </template>
 
@@ -48,44 +48,44 @@ export default Vue.extend({
     getLineupLocations(): LineupLocation[] {
       let lineupLoationsMap: Map<string, LineupLocation> = new Map();
       let mapMapManger: MapDataManager = this.getMapManager;
-      // switch (this.abilityFilter) {
-      // case LineupType.VIPER_MOLLY:
-      // TODO: Split logic to helper method
-      for (var key in mapMapManger.getViperMollys) {
-        let location: LocationInfo = mapMapManger.locations.get(key);
-        let coordinate: Coordinate = mapMapManger.coordinates.get(
-          location.coordinateKey
-        );
-        if (lineupLoationsMap.has(location.coordinateKey)) {
-          lineupLoationsMap.get(location.coordinateKey).addLineup(location);
-        } else {
-          lineupLoationsMap.set(
-            location.coordinateKey,
-            new LineupLocation(coordinate)
-          );
-        }
+      switch (this.abilityFilter) {
+        case LineupType.VIPER_MOLLY:
+          // TODO: Split logic to helper method
+          for (var key in mapMapManger.getViperMollys) {
+            let location: LocationInfo = mapMapManger.locations.get(key);
+            let coordinate: Coordinate = mapMapManger.coordinates.get(
+              location.coordinateKey
+            );
+            if (lineupLoationsMap.has(location.coordinateKey)) {
+              lineupLoationsMap.get(location.coordinateKey).addLineup(location);
+            } else {
+              lineupLoationsMap.set(
+                location.coordinateKey,
+                new LineupLocation(coordinate)
+              );
+            }
+          }
+          break;
+        case LineupType.STANDARD_MOLLY:
+          for (var key1 in mapMapManger.getViperMollys) {
+            let location: LocationInfo = mapMapManger.locations.get(key1);
+            let coordinate: Coordinate = mapMapManger.coordinates.get(
+              location.coordinateKey
+            );
+            if (lineupLoationsMap.has(location.coordinateKey)) {
+              lineupLoationsMap.get(location.coordinateKey).addLineup(location);
+            } else {
+              lineupLoationsMap.set(
+                location.coordinateKey,
+                new LineupLocation(coordinate)
+              );
+            }
+          }
+          break;
+        default:
+          return [];
       }
-      // break;
-      // case LineupType.STANDARD_MOLLY:
-      //     for (var key1 in mapMapManger.getViperMollys) {
-      //       let location: LocationInfo = mapMapManger.locations.get(key1);
-      //       let coordinate: Coordinate = mapMapManger.coordinates.get(
-      //         location.coordinateKey
-      //       );
-      //       if (lineupLoationsMap.has(location.coordinateKey)) {
-      //         lineupLoationsMap.get(location.coordinateKey).addLineup(location);
-      //       } else {
-      //         lineupLoationsMap.set(
-      //           location.coordinateKey,
-      //           new LineupLocation(coordinate)
-      //         );
-      //       }
-      //     }
-      //     break;
-      //   default:
-      //     return [];
-      // }
-      // console.log(Array.from(lineupLoationsMap.values()));
+      console.log(Array.from(lineupLoationsMap.values()));
       return Array.from(lineupLoationsMap.values());
     },
     abilityFilter: {

@@ -14,4 +14,11 @@ export default class Icons {
         iconAnchor: [28, 43],
         popupAnchor: [0, -50],
     });
+
+    static viperSmoke = L.icon({
+        iconUrl: "images/viper-poison-cloud.png",
+        iconSize: [56, 86],
+        iconAnchor: [28, 43],
+        popupAnchor: [0, -50],
+    });
 }
