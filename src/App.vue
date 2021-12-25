@@ -4,12 +4,26 @@
     <app-header />
     <app-nav-drawer />
     <interactive-map :lineupLocations="getLineupLocations" />
+    <location-info-popup />
+    <l-marker
+      :lat-lng="[-128, 128]"
+      :icon="icon"
+      v-bind="attrs"
+      v-on="on"
+      @click="dialog = !dialog"
+    />
+    <v-dialog v-model="dialog" max-width="90vw">
+      <!-- <location-gallary /> -->
+    </v-dialog>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import InteractiveMap from "./components/InteractiveMap.vue";
+
+import { LMarker } from "vue2-leaflet";
+
 import MapType from "./enums/MapType";
 import { FilterMutations } from "./store/filter/mutations";
 import AppNavDrawer from "./components/AppNavDrawer/AppNavDrawer.vue";
@@ -21,6 +35,8 @@ import LineupType from "./enums/LineupType";
 import LocationInfo from "./interfaces/LocationInfo";
 import Coordinate from "./interfaces/Coordinate";
 
+import LocationInfoPopup from "./components/LocationInfoPopup.vue";
+
 export default Vue.extend({
   name: "App",
 
@@ -28,6 +44,8 @@ export default Vue.extend({
     AppNavDrawer,
     AppHeader,
     InteractiveMap,
+    LocationInfoPopup,
+    LMarker,
   },
 
   data: () => ({}),
