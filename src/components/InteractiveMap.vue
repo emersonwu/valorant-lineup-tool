@@ -5,7 +5,7 @@
     :center="[-128, 128]"
     :crs="crs"
     :minZoom="0"
-    :maxZoom="maxZoom"
+    :maxZoom="5"
   >
     <l-tile-layer :url="url" :noWrap="true"></l-tile-layer>
     <lineup-marker :lineupLocation="testLocation" />
@@ -37,7 +37,7 @@ export default {
   },
   data() {
     return {
-      url: "map_tiles/split/{z}/{y}/{x}.png",
+      url: "map_tiles/bind/{z}/{y}/{x}.png",
       crs: CRS.Simple,
 
       markerLatLng: [-128, 128],
