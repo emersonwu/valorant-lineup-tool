@@ -1,7 +1,7 @@
 import AgentType from "@/enums/AgentType";
 import LineupType from "@/enums/LineupType";
 import MapType from "@/enums/MapType";
-import LocationInfo from "@/interfaces/LocationInfo";
+import LineupLocation from "@/interfaces/LineupLocation";
 import { MutationTree } from "vuex";
 import { FilterState } from "./types";
 
@@ -9,7 +9,7 @@ export enum FilterMutations {
     SET_MAP_FILTER = "SET_MAP_FILTER",
     SET_AGENT_FILTER = "SET_AGENT_FILTER",
     SET_LINEUP_TYPE_FILTER = "SET_LINEUP_TYPE_FILTER",
-    SET_ALL_LOCATIONS = "ADD_TO_ALL_LOCATIONS",
+    SET_LOCATIONS_TO_DISPLAY = "SET_LOCATIONS_TO_DISPLAY",
 }
 
 export const mutations: MutationTree<FilterState> = {
@@ -22,7 +22,7 @@ export const mutations: MutationTree<FilterState> = {
     [FilterMutations.SET_LINEUP_TYPE_FILTER](state, payload: LineupType) {
         state.lineupTypeFilter = payload;
     },
-    [FilterMutations.SET_ALL_LOCATIONS](state, payload: LocationInfo[]) {
-        state.allLocations = payload;
+    [FilterMutations.SET_LOCATIONS_TO_DISPLAY](state, payload: LineupLocation[]) {
+        state.locationsToDisplay = payload;
     },
 }

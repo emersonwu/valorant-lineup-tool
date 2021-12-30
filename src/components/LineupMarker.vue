@@ -1,5 +1,9 @@
 <template>
-  <l-marker :lat-lng="getLatLong()" :icon="getIcon"></l-marker>
+  <l-marker
+    v-if="getMarkerLatLng"
+    :lat-lng="getMarkerLatLng"
+    :icon="getIcon"
+  ></l-marker>
 </template>
 
 <script lang="ts">
@@ -11,7 +15,7 @@ import { LMarker } from "vue2-leaflet";
 import AgentType from "@/enums/AgentType";
 
 export default {
-  name: "LineupMarkers",
+  name: "LineupMarker",
   components: {
     LMarker,
   },
@@ -25,15 +29,12 @@ export default {
     },
   },
   mounted() {},
-  methods: {
-    getLatLong(): number[] {
-      return [
-        this.lineupLocation.location.xPixelCoordinate,
-        this.lineupLocation.location.yPixelCoordinate,
-      ];
-    },
-  },
+  methods: {},
   computed: {
+    getMarkerLatLng(): Number[] {
+      console.log("getMarkerLatLng()", this.lineupLocation.location);
+      return this.lineupLocation.location;
+    },
     getIcon(): any {
       switch (this.agentFilter) {
         case AgentType.VIPER:

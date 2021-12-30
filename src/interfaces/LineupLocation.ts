@@ -3,7 +3,7 @@ import LocationInfo from './LocationInfo'
 
 export default class LineupLocation {
     location: Coordinate;
-    lineups: LocationInfo[];
+    lineups: LocationInfo[] = [];
 
     constructor(location: Coordinate) {
         this.location = location;

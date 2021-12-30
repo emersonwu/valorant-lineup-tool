@@ -11,7 +11,7 @@ const state: FilterState = {
     mapFilter: null,
     agentFilter: null,
     lineupTypeFilter: null,
-    allLocations: [],
+    locationsToDisplay: [],
 }
 
 export const filter: Module<FilterState, RootState> = {

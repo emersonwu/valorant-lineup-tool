@@ -7,8 +7,12 @@
     :minZoom="0"
     :maxZoom="5"
   >
-    <l-tile-layer :url="url" :noWrap="true"></l-tile-layer>
-    <lineup-marker :lineupLocation="testLocation" />
+    <l-tile-layer :url="url" :noWrap="true" />
+    <lineup-marker
+      v-for="location in lineupMarkerineupLocations"
+      :key="location.location.toString()"
+      :lineupLocation="location"
+    />
   </l-map>
 </template>
 
@@ -17,10 +21,8 @@ import { CRS } from "leaflet";
 import { LMap, LTileLayer } from "vue2-leaflet";
 import "leaflet/dist/leaflet.css";
 
-import Icons from "../leaflet_objects/Icons";
 import LineupMarker from "./LineupMarker.vue";
 import LineupLocation from "@/interfaces/LineupLocation";
-import LocationInfo from "@/interfaces/LocationInfo";
 
 export default {
   name: "InteractiveMap",
@@ -30,32 +32,16 @@ export default {
     LineupMarker,
   },
   props: {
-    LineupMarkerineupLocations: {
-      type: Array,
+    lineupLocations: {
+      type: Object as () => LineupLocation[],
       required: false,
     },
   },
   data() {
     return {
-      url: "map_tiles/bind/{z}/{y}/{x}.png",
       crs: CRS.Simple,
-
-      markerLatLng: [-128, 128],
-      icon: Icons.spike,
-      testLocation: {} as LineupLocation,
-      testLocationInfo: {
-        key: "lineup1",
-        name: "Lineup name 1",
-        description: "Description for lineup 1",
-        coordinateKey: "lineup1&2",
-        img: "images/bind/postPlantLineups/1.png",
-      } as LocationInfo,
+      url: "map_tiles/bind/{z}/{y}/{x}.png",
     };
-  },
-  created() {
-    this.testLocation = new LineupLocation(this.markerLatLng);
-    this.testLocation.addLineup(this.testLocationInfo);
-    console.log(this.testLocation);
   },
 };
 </script>

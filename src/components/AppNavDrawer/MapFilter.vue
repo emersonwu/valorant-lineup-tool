@@ -50,10 +50,8 @@
 import { FilterMutations } from "@/store/filter/mutations";
 import MapFilterCards from "./MapFilterCards.vue";
 import MapType from "@/enums/MapType";
-import bindMapData from "@/data/bind.json";
 
 import Vue from "vue";
-import LocationInfo from "@/interfaces/LocationInfo";
 
 export default Vue.extend({
   name: "MapFilter",
@@ -73,26 +71,6 @@ export default Vue.extend({
       set(value: MapType): void {
         this.$store.commit(FilterMutations.SET_MAP_FILTER, value);
       },
-    },
-    allLocations: {
-      get(): LocationInfo[] {
-        return this.$store.getters.getAllLocations;
-      },
-      set(value: LocationInfo[]): void {
-        this.$store.commit(FilterMutations.SET_ALL_LOCATIONS, value);
-      },
-    },
-  },
-  watch: {
-    // Populates all locations store with selected map
-    mapFilter: function () {
-      switch (this.mapFilter) {
-        case MapType.BIND:
-          this.allLocations = bindMapData.locations as LocationInfo[];
-          break;
-        default:
-          this.allLocations = [];
-      }
     },
   },
   methods: {

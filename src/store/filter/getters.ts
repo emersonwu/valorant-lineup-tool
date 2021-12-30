@@ -1,7 +1,7 @@
 import AgentType from "@/enums/AgentType";
 import LineupType from "@/enums/LineupType";
 import MapType from "@/enums/MapType";
-import LocationInfo from "@/interfaces/LocationInfo";
+import LineupLocation from "@/interfaces/LineupLocation";
 import { GetterTree } from "vuex";
 import { RootState } from "../types";
 import { FilterState } from "./types";
@@ -16,7 +16,7 @@ export const getters: GetterTree<FilterState, RootState> = {
     getLineupTypeFilter(state): LineupType {
         return state.lineupTypeFilter;
     },
-    getAllLocation(state): LocationInfo[] {
-        return state.allLocations;
+    getLocationsToDisplay(state): LineupLocation[] {
+        return state.locationsToDisplay;
     }
 }

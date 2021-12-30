@@ -71,10 +71,15 @@
 </template>
 
 <script lang="ts">
+import { FilterMutations } from "@/store/filter/mutations";
 import { AppMutations } from "@/store/app/mutations";
 import MapFilter from "./MapFilter.vue";
 import AgentFilter from "./AgentFilter.vue";
 import AbilityFilter from "./AbilityFilter.vue";
+import MapDataManager from "@/utils/MapDataManager";
+import LineupLocation from "@/interfaces/LineupLocation";
+import LocationInfo from "@/interfaces/LocationInfo";
+import Coordinate from "@/interfaces/Coordinate";
 
 import Vue from "vue";
 import LineupType from "@/enums/LineupType";
@@ -99,28 +104,122 @@ export default Vue.extend({
     },
     // Below for debug testing
     getMapSelected() {
-      let mapSelected = this.$store.getters.getMapFilter;
-      if (mapSelected) {
-        return MapType[mapSelected];
+      if (this.mapFilter) {
+        return MapType[this.mapFilter];
       }
       return "Nothing selected";
     },
     getAgentSelected() {
-      let agentSelected = this.$store.getters.getAgentFilter;
-      if (agentSelected) {
-        return AgentType[agentSelected];
+      if (this.agentFilter) {
+        return AgentType[this.agentFilter];
       }
       return "Nothing selected";
     },
     getAbilitySelected() {
-      let abilitySelected = this.$store.getters.getLineupTypeFilter;
-      console.log(abilitySelected);
-      if (abilitySelected) {
-        return LineupType[abilitySelected];
+      console.log("getAbilitySelected()", this.abilityFilter);
+      if (this.abilityFilter) {
+        return LineupType[this.abilityFilter];
       }
       return "Nothing selected";
     },
     // Above for debug testing
+    abilityFilter: {
+      get(): LineupType {
+        return this.$store.getters.getLineupTypeFilter;
+      },
+      set(value: LineupType): void {
+        this.$store.commit(FilterMutations.SET_LINEUP_TYPE_FILTER, value);
+      },
+    },
+    agentFilter: {
+      get(): boolean {
+        return this.$store.getters.getAgentFilter;
+      },
+      set(value: AgentType): void {
+        this.$store.commit(FilterMutations.SET_AGENT_FILTER, value);
+      },
+    },
+    mapFilter: {
+      get(): MapType {
+        return this.$store.getters.getMapFilter;
+      },
+      set(value: MapType): void {
+        this.$store.commit(FilterMutations.SET_MAP_FILTER, value);
+      },
+    },
+  },
+  watch: {
+    // Changes the locations to display store on ability, agent or map changes.
+    abilityFilter: function () {
+      console.log(
+        "AppNavDrawer getLineupLocations()",
+        this.getLineupLocations()
+      );
+    },
+    agentFilter: function () {
+      console.log(
+        "AppNavDrawer getLineupLocations()",
+        this.getLineupLocations()
+      );
+    },
+    mapFilter: function () {
+      console.log(
+        "AppNavDrawer getLineupLocations()",
+        this.getLineupLocations()
+      );
+    },
+  },
+  mounted() {
+    console.log("AppNavDrawer getLineupLocations()", this.getLineupLocations());
+  },
+  methods: {
+    filterChanged() {},
+    getMapManager(): MapDataManager {
+      return new MapDataManager(MapType.BIND);
+    },
+    getLineupLocations(): LineupLocation[] {
+      let lineupLocationsMap: Map<string, LineupLocation> = new Map();
+      let mapMapManger: MapDataManager = this.getMapManager();
+      console.log("mapMapManager", mapMapManger);
+      // switch (this.abilityFilter) {
+      // case LineupType.VIPER_MOLLY:
+      // TODO: Split logic to helper method
+      for (const key of mapMapManger.getViperMollys()) {
+        let location: LocationInfo = mapMapManger.locations.get(key);
+        let coordinate: Coordinate = mapMapManger.coordinates.get(
+          location.coordinateKey
+        );
+        if (lineupLocationsMap.has(location.coordinateKey)) {
+          lineupLocationsMap.get(location.coordinateKey).addLineup(location);
+        } else {
+          var lineupLocation = new LineupLocation(coordinate);
+          lineupLocation.addLineup(location);
+          lineupLocationsMap.set(location.coordinateKey, lineupLocation);
+        }
+      }
+      //   break;
+      // case LineupType.STANDARD_MOLLY:
+      //   for (var key1 in mapMapManger.getViperMollys) {
+      //     let location: LocationInfo = mapMapManger.locations.get(key1);
+      //     let coordinate: Coordinate = mapMapManger.coordinates.get(
+      //       location.coordinateKey
+      //     );
+      //     if (lineupLocationsMap.has(location.coordinateKey)) {
+      //       lineupLocationsMap.get(location.coordinateKey).addLineup(location);
+      //     } else {
+      //       lineupLocationsMap.set(
+      //         location.coordinateKey,
+      //         new LineupLocation(coordinate)
+      //       );
+      //     }
+      //   }
+      //   break;
+      // default:
+      //   console.log("lineupLocationsMap.values() is null");
+      //   return [];
+      // }
+      return Array.from(lineupLocationsMap.values());
+    },
   },
 });
 </script>
