@@ -48,25 +48,6 @@
       </v-list-item-content>
     </v-list-item>
     <v-divider></v-divider>
-
-    <!-- Ability -->
-    <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title class="nav-drawer-header2"
-          >Temp Debug output</v-list-item-title
-        >
-        <v-list-item-title class="nav-drawer-header3">
-          Map Selected: {{ getMapSelected }}</v-list-item-title
-        >
-        <v-list-item-title class="nav-drawer-header3">
-          Agent Selected: {{ getAgentSelected }}</v-list-item-title
-        >
-        <v-list-item-title class="nav-drawer-header3">
-          Ability Selected: {{ getAbilitySelected }}</v-list-item-title
-        >
-      </v-list-item-content>
-    </v-list-item>
-    <v-divider></v-divider>
   </v-navigation-drawer>
 </template>
 
@@ -102,27 +83,6 @@ export default Vue.extend({
         this.$store.commit(AppMutations.SET_IS_NAV_BAR_OPEN, value);
       },
     },
-    // Below for debug testing
-    getMapSelected() {
-      if (this.mapFilter) {
-        return MapType[this.mapFilter];
-      }
-      return "Nothing selected";
-    },
-    getAgentSelected() {
-      if (this.agentFilter) {
-        return AgentType[this.agentFilter];
-      }
-      return "Nothing selected";
-    },
-    getAbilitySelected() {
-      console.log("getAbilitySelected()", this.abilityFilter);
-      if (this.abilityFilter) {
-        return LineupType[this.abilityFilter];
-      }
-      return "Nothing selected";
-    },
-    // Above for debug testing
     abilityFilter: {
       get(): LineupType {
         return this.$store.getters.getLineupTypeFilter;
@@ -147,30 +107,38 @@ export default Vue.extend({
         this.$store.commit(FilterMutations.SET_MAP_FILTER, value);
       },
     },
+    locationsToDisplay: {
+      get(): LineupLocation[] {
+        return this.$store.getters.getLocationsToDisplay;
+      },
+      set(value: LineupLocation[]): void {
+        this.$store.commit(FilterMutations.SET_LOCATIONS_TO_DISPLAY, value);
+      },
+    },
   },
   watch: {
     // Changes the locations to display store on ability, agent or map changes.
     abilityFilter: function () {
+      this.locationsToDisplay = this.getLineupLocations();
       console.log(
-        "AppNavDrawer getLineupLocations()",
-        this.getLineupLocations()
+        "Ability changed locationsToDisplay => ",
+        this.locationsToDisplay
       );
     },
     agentFilter: function () {
+      this.locationsToDisplay = this.getLineupLocations();
       console.log(
-        "AppNavDrawer getLineupLocations()",
-        this.getLineupLocations()
+        "Agent changed locationsToDisplay => ",
+        this.locationsToDisplay
       );
     },
     mapFilter: function () {
+      this.locationsToDisplay = this.getLineupLocations();
       console.log(
-        "AppNavDrawer getLineupLocations()",
-        this.getLineupLocations()
+        "Map changed locationsToDisplay => ",
+        this.locationsToDisplay
       );
     },
-  },
-  mounted() {
-    console.log("AppNavDrawer getLineupLocations()", this.getLineupLocations());
   },
   methods: {
     filterChanged() {},
@@ -181,10 +149,19 @@ export default Vue.extend({
       let lineupLocationsMap: Map<string, LineupLocation> = new Map();
       let mapMapManger: MapDataManager = this.getMapManager();
       console.log("mapMapManager", mapMapManger);
-      // switch (this.abilityFilter) {
-      // case LineupType.VIPER_MOLLY:
-      // TODO: Split logic to helper method
-      for (const key of mapMapManger.getViperMollys()) {
+      var locationsFilteredByAbility: string[] = [];
+      switch (this.abilityFilter) {
+        case LineupType.VIPER_MOLLY:
+          locationsFilteredByAbility = mapMapManger.getViperMollys();
+          break;
+        case LineupType.STANDARD_MOLLY:
+          locationsFilteredByAbility = mapMapManger.getStandardMollys();
+          break;
+        default:
+          // return empty list early as nothing selected
+          return [];
+      }
+      for (const key of locationsFilteredByAbility) {
         let location: LocationInfo = mapMapManger.locations.get(key);
         let coordinate: Coordinate = mapMapManger.coordinates.get(
           location.coordinateKey
@@ -197,27 +174,6 @@ export default Vue.extend({
           lineupLocationsMap.set(location.coordinateKey, lineupLocation);
         }
       }
-      //   break;
-      // case LineupType.STANDARD_MOLLY:
-      //   for (var key1 in mapMapManger.getViperMollys) {
-      //     let location: LocationInfo = mapMapManger.locations.get(key1);
-      //     let coordinate: Coordinate = mapMapManger.coordinates.get(
-      //       location.coordinateKey
-      //     );
-      //     if (lineupLocationsMap.has(location.coordinateKey)) {
-      //       lineupLocationsMap.get(location.coordinateKey).addLineup(location);
-      //     } else {
-      //       lineupLocationsMap.set(
-      //         location.coordinateKey,
-      //         new LineupLocation(coordinate)
-      //       );
-      //     }
-      //   }
-      //   break;
-      // default:
-      //   console.log("lineupLocationsMap.values() is null");
-      //   return [];
-      // }
       return Array.from(lineupLocationsMap.values());
     },
   },

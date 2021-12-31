@@ -8,17 +8,21 @@
     :maxZoom="5"
   >
     <l-tile-layer :url="url" :noWrap="true" />
-    <lineup-marker
-      v-for="location in lineupMarkerineupLocations"
-      :key="location.location.toString()"
-      :lineupLocation="location"
-    />
+    <div v-if="getLocationsToDisplay.length > 0">
+      <lineup-marker
+        v-for="location in getLocationsToDisplay"
+        :key="location.location.key"
+        :lineupLocation="location"
+      />
+    </div>
   </l-map>
 </template>
 
 <script lang="ts">
 import { CRS } from "leaflet";
 import { LMap, LTileLayer } from "vue2-leaflet";
+import { FilterMutations } from "@/store/filter/mutations";
+
 import "leaflet/dist/leaflet.css";
 
 import LineupMarker from "./LineupMarker.vue";
@@ -31,17 +35,25 @@ export default {
     LTileLayer,
     LineupMarker,
   },
-  props: {
-    lineupLocations: {
-      type: Object as () => LineupLocation[],
-      required: false,
-    },
-  },
   data() {
     return {
       crs: CRS.Simple,
       url: "map_tiles/bind/{z}/{y}/{x}.png",
     };
+  },
+  computed: {
+    getLocationsToDisplay(): LineupLocation[] {
+      console.log("locationsToDisplay()", this.locationsToDisplay);
+      return this.locationsToDisplay;
+    },
+    locationsToDisplay: {
+      get(): LineupLocation[] {
+        return this.$store.getters.getLocationsToDisplay;
+      },
+      set(value: LineupLocation[]): void {
+        this.$store.commit(FilterMutations.SET_LOCATIONS_TO_DISPLAY, value);
+      },
+    },
   },
 };
 </script>

@@ -11,7 +11,7 @@ import LineupLocation from "@/interfaces/LineupLocation";
 import Icons from "../leaflet_objects/Icons";
 import { FilterMutations } from "@/store/filter/mutations";
 import { LMarker } from "vue2-leaflet";
-
+import LineupType from "@/enums/LineupType";
 import AgentType from "@/enums/AgentType";
 
 export default {
@@ -28,19 +28,29 @@ export default {
       required: true,
     },
   },
-  mounted() {},
-  methods: {},
   computed: {
     getMarkerLatLng(): Number[] {
-      console.log("getMarkerLatLng()", this.lineupLocation.location);
-      return this.lineupLocation.location;
+      return [
+        this.lineupLocation.location.xPixelCoordinate,
+        this.lineupLocation.location.yPixelCoordinate,
+      ];
     },
     getIcon(): any {
       switch (this.agentFilter) {
+        case AgentType.BRIMSTONE:
+          return Icons.brimstoneMolly;
+        case AgentType.KAYO:
+          return Icons.kayoMolly;
+        case AgentType.KILLJOY:
+          return Icons.killjoyMolly;
         case AgentType.VIPER:
-          return Icons.viperSmoke;
+          if (this.abilityFilter == LineupType.VIPER_MOLLY) {
+            return Icons.viperSnakeBite;
+          } else {
+            return Icons.viperSmoke;
+          }
         default:
-          return Icons.red;
+          return Icons.noAblility;
       }
     },
     agentFilter: {
@@ -49,6 +59,14 @@ export default {
       },
       set(value: AgentType): void {
         this.$store.commit(FilterMutations.SET_AGENT_FILTER, value);
+      },
+    },
+    abilityFilter: {
+      get(): LineupType {
+        return this.$store.getters.getLineupTypeFilter;
+      },
+      set(value: LineupType): void {
+        this.$store.commit(FilterMutations.SET_LINEUP_TYPE_FILTER, value);
       },
     },
   },
