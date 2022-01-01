@@ -3,6 +3,6 @@
  */
 export default interface Coordinate {
     key: string;
-    xPixelCoordinate: number;
-    yPixelCoordinate: number;
+    lat: number;
+    lng: number;
 }

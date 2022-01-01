@@ -15,6 +15,8 @@
         :lineupLocation="location"
       />
     </div>
+    <!-- TODO: Remove LatLongMarker Below -->
+    <lat-long-marker />
   </l-map>
 </template>
 
@@ -27,6 +29,7 @@ import "leaflet/dist/leaflet.css";
 
 import LineupMarker from "./LineupMarker.vue";
 import LineupLocation from "@/interfaces/LineupLocation";
+import LatLongMarker from "./DeveloperTools/LatLongMarker.vue";
 
 export default {
   name: "InteractiveMap",
@@ -34,6 +37,7 @@ export default {
     LMap,
     LTileLayer,
     LineupMarker,
+    LatLongMarker,
   },
   data() {
     return {

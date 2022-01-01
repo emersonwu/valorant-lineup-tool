@@ -148,7 +148,6 @@ export default Vue.extend({
     getLineupLocations(): LineupLocation[] {
       let lineupLocationsMap: Map<string, LineupLocation> = new Map();
       let mapMapManger: MapDataManager = this.getMapManager();
-      console.log("mapMapManager", mapMapManger);
       var locationsFilteredByAbility: string[] = [];
       switch (this.abilityFilter) {
         case LineupType.VIPER_MOLLY:
@@ -163,15 +162,17 @@ export default Vue.extend({
       }
       for (const key of locationsFilteredByAbility) {
         let location: LocationInfo = mapMapManger.locations.get(key);
-        let coordinate: Coordinate = mapMapManger.coordinates.get(
-          location.coordinateKey
-        );
-        if (lineupLocationsMap.has(location.coordinateKey)) {
-          lineupLocationsMap.get(location.coordinateKey).addLineup(location);
-        } else {
-          var lineupLocation = new LineupLocation(coordinate);
-          lineupLocation.addLineup(location);
-          lineupLocationsMap.set(location.coordinateKey, lineupLocation);
+        if (location) {
+          let coordinate: Coordinate = mapMapManger.coordinates.get(
+            location.coordinateKey
+          );
+          if (lineupLocationsMap.has(location.coordinateKey)) {
+            lineupLocationsMap.get(location.coordinateKey).addLineup(location);
+          } else {
+            var lineupLocation = new LineupLocation(coordinate);
+            lineupLocation.addLineup(location);
+            lineupLocationsMap.set(location.coordinateKey, lineupLocation);
+          }
         }
       }
       return Array.from(lineupLocationsMap.values());

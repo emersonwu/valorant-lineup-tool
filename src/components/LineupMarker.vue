@@ -1,13 +1,21 @@
 <template>
-  <l-marker
-    v-if="getMarkerLatLng"
-    :lat-lng="getMarkerLatLng"
-    :icon="getIcon"
-  ></l-marker>
+  <div>
+    <l-marker
+      v-if="getMarkerLatLng"
+      :lat-lng="getMarkerLatLng"
+      :icon="getIcon"
+      @click="dialog = true"
+    />
+    <v-dialog v-model="dialog" max-width="90vw">
+      <location-gallary :locationInfos="lineupLocation.lineups" />
+    </v-dialog>
+  </div>
 </template>
 
 <script lang="ts">
 import LineupLocation from "@/interfaces/LineupLocation";
+import LocationGallary from "./LocationGallary.vue";
+
 import Icons from "../leaflet_objects/Icons";
 import { FilterMutations } from "@/store/filter/mutations";
 import { LMarker } from "vue2-leaflet";
@@ -18,9 +26,12 @@ export default {
   name: "LineupMarker",
   components: {
     LMarker,
+    LocationGallary,
   },
   data() {
-    return {};
+    return {
+      dialog: false,
+    };
   },
   props: {
     lineupLocation: {
@@ -28,11 +39,16 @@ export default {
       required: true,
     },
   },
+  methods: {
+    alertClick() {
+      alert("Click!");
+    },
+  },
   computed: {
     getMarkerLatLng(): Number[] {
       return [
-        this.lineupLocation.location.xPixelCoordinate,
-        this.lineupLocation.location.yPixelCoordinate,
+        this.lineupLocation.location.lat,
+        this.lineupLocation.location.lng,
       ];
     },
     getIcon(): any {

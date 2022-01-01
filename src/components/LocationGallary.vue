@@ -1,10 +1,13 @@
 <template>
   <v-card color="black" dark flat tile>
     <v-window v-model="onboarding">
-      <v-window-item v-for="n in length" :key="`card-${n}`">
-        <v-card color="transparent" height="200">
-          <v-row class="fill-height" align="center" justify="center">
-            <v-img src="markers/spike.png" max-height="80vh" contain></v-img>
+      <v-window-item v-for="location in locationInfos" :key="location.key">
+        <v-card color="transparent" height="80vh">
+          <v-card-text>
+            <div class="gallary-text">{{ location.name }}</div>
+          </v-card-text>
+          <v-row align="center" justify="center">
+            <v-img :src="location.img" height="73vh" contain />
           </v-row>
         </v-card>
       </v-window-item>
@@ -33,12 +36,19 @@
 </template>
 
 
-<script>
+<script lang="ts">
+import LocationInfo from "@/interfaces/LocationInfo";
+
 export default {
-  props: {},
+  props: {
+    locationInfos: {
+      type: Array as () => LocationInfo[],
+      required: true,
+    },
+  },
   data: () => ({
-    length: 3,
     onboarding: 0,
+    length: 0,
   }),
 
   methods: {
@@ -51,5 +61,16 @@ export default {
         this.onboarding - 1 < 0 ? this.length - 1 : this.onboarding - 1;
     },
   },
+  mounted() {
+    this.length = this.locationInfos.length;
+  },
 };
 </script>
+
+<style>
+.gallary-text {
+  font-family: "Valorant";
+  font-size: 2em !important;
+  color: #ffffff;
+}
+</style>
