@@ -1,5 +1,3 @@
-import Coordinate from "./Coordinate";
-
 /**
  * A LocationInfo Prototype.
  */

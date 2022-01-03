@@ -11,12 +11,15 @@ export default class MapDataManager {
     mapJson: MapData;
     locations: Map<string, LocationInfo> = new Map();
     coordinates: Map<string, Coordinate> = new Map();
+    spikeLineups: Map<string, String[]> = new Map();
+
 
     constructor(mapType: MapType) {
         this.mapType = mapType;
         this.mapJson = this.getMapDataFromJson(mapType);
         this.setLocations();
         this.setCoordinates();
+        this.setSpikeLineups();
     }
 
     private getMapDataFromJson(mapType: MapType): MapData {
@@ -40,6 +43,12 @@ export default class MapDataManager {
     public setCoordinates(): void {
         this.mapJson.coordinates.forEach((coordinate) => {
             this.coordinates.set(coordinate.key, coordinate)
+        })
+    }
+
+    public setSpikeLineups(): void {
+        this.mapJson.spikeLineups.forEach((spikeLineup) => {
+            this.spikeLineups.set(spikeLineup.spikeKey, spikeLineup.lineupKeys)
         })
     }
 

@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import InteractiveMap from "./components/InteractiveMap.vue";
+import InteractiveMap from "./components/InteractiveMap/InteractiveMap.vue";
 import AppNavDrawer from "./components/AppNavDrawer/AppNavDrawer.vue";
 import AppHeader from "./components/AppHeader.vue";
 

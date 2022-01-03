@@ -16,7 +16,7 @@
 import LineupLocation from "@/interfaces/LineupLocation";
 import LocationGallary from "./LocationGallary.vue";
 
-import Icons from "../leaflet_objects/Icons";
+import Icons from "../../leaflet_objects/Icons";
 import { FilterMutations } from "@/store/filter/mutations";
 import { LMarker } from "vue2-leaflet";
 import LineupType from "@/enums/LineupType";

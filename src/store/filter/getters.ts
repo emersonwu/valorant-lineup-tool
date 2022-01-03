@@ -1,6 +1,7 @@
 import AgentType from "@/enums/AgentType";
 import LineupType from "@/enums/LineupType";
 import MapType from "@/enums/MapType";
+import SpikeLocation from "@/interfaces/SpikeLocation";
 import LineupLocation from "@/interfaces/LineupLocation";
 import { GetterTree } from "vuex";
 import { RootState } from "../types";
@@ -15,6 +16,9 @@ export const getters: GetterTree<FilterState, RootState> = {
     },
     getLineupTypeFilter(state): LineupType {
         return state.lineupTypeFilter;
+    },
+    getSpikesToDisplay(state): SpikeLocation[] {
+        return state.spikesToDisplay;
     },
     getLocationsToDisplay(state): LineupLocation[] {
         return state.locationsToDisplay;

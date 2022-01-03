@@ -2,9 +2,9 @@ const L = require('leaflet');
 
 export default class Icons {
     static spike = L.icon({
-        iconUrl: "markers/spike.png",
-        iconSize: [56, 86],
-        iconAnchor: [28, 43],
+        iconUrl: "markers/spike-marker.png",
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
         popupAnchor: [0, -50],
     });
 

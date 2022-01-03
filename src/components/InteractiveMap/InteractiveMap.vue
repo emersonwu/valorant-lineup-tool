@@ -8,9 +8,19 @@
     :maxZoom="5"
   >
     <l-tile-layer :url="url" :noWrap="true" />
-    <div v-if="getLocationsToDisplay.length > 0">
+
+    <!-- Display Spike Locations -->
+    <div v-if="spikesToDisplay.length > 0">
+      <spike-marker
+        v-for="spike in spikesToDisplay"
+        :key="spike.location.key"
+        :spikeLocation="spike"
+      />
+    </div>
+    <!-- Display Lineup Locations -->
+    <div v-if="locationsToDisplay.length > 0">
       <lineup-marker
-        v-for="location in getLocationsToDisplay"
+        v-for="location in locationsToDisplay"
         :key="location.location.key"
         :lineupLocation="location"
       />
@@ -27,9 +37,11 @@ import { FilterMutations } from "@/store/filter/mutations";
 
 import "leaflet/dist/leaflet.css";
 
+import SpikeMarker from "./SpikeMarker.vue";
 import LineupMarker from "./LineupMarker.vue";
+import SpikeLocation from "@/interfaces/SpikeLocation";
 import LineupLocation from "@/interfaces/LineupLocation";
-import LatLongMarker from "./DeveloperTools/LatLongMarker.vue";
+import LatLongMarker from "@/components/DeveloperTools/LatLongMarker.vue";
 
 export default {
   name: "InteractiveMap",
@@ -38,6 +50,7 @@ export default {
     LTileLayer,
     LineupMarker,
     LatLongMarker,
+    SpikeMarker,
   },
   data() {
     return {
@@ -46,9 +59,13 @@ export default {
     };
   },
   computed: {
-    getLocationsToDisplay(): LineupLocation[] {
-      console.log("locationsToDisplay()", this.locationsToDisplay);
-      return this.locationsToDisplay;
+    spikesToDisplay: {
+      get(): SpikeLocation[] {
+        return this.$store.getters.getSpikesToDisplay;
+      },
+      set(value: SpikeLocation[]): void {
+        this.$store.commit(FilterMutations.SET_SPIKES_TO_DISPLAY, value);
+      },
     },
     locationsToDisplay: {
       get(): LineupLocation[] {

@@ -1,6 +1,6 @@
 import Coordinate from './Coordinate';
 import LocationInfo from './LocationInfo'
-import SpikeData from './SpikeData';
+import SpikeLineups from './SpikeLineups';
 
 /**
  * A MapData interface.
@@ -9,7 +9,7 @@ export default interface MapData {
     mapKey: string;
     locations: LocationInfo[];
     coordinates: Coordinate[];
-    spikeData: SpikeData[];
+    spikeLineups: SpikeLineups[];
     viperMollys: string[];
     standardMollys: string[]
 }

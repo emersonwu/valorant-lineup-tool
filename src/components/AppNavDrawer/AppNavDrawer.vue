@@ -60,6 +60,7 @@ import AbilityFilter from "./AbilityFilter.vue";
 import MapDataManager from "@/utils/MapDataManager";
 import LineupLocation from "@/interfaces/LineupLocation";
 import LocationInfo from "@/interfaces/LocationInfo";
+import SpikeLocation from "@/interfaces/SpikeLocation";
 import Coordinate from "@/interfaces/Coordinate";
 
 import Vue from "vue";
@@ -107,6 +108,14 @@ export default Vue.extend({
         this.$store.commit(FilterMutations.SET_MAP_FILTER, value);
       },
     },
+    spikesToDisplay: {
+      get(): SpikeLocation[] {
+        return this.$store.getters.getSpikesToDisplay;
+      },
+      set(value: SpikeLocation[]): void {
+        this.$store.commit(FilterMutations.SET_SPIKES_TO_DISPLAY, value);
+      },
+    },
     locationsToDisplay: {
       get(): LineupLocation[] {
         return this.$store.getters.getLocationsToDisplay;
@@ -120,50 +129,53 @@ export default Vue.extend({
     // Changes the locations to display store on ability, agent or map changes.
     abilityFilter: function () {
       this.locationsToDisplay = this.getLineupLocations();
-      console.log(
-        "Ability changed locationsToDisplay => ",
-        this.locationsToDisplay
-      );
     },
     agentFilter: function () {
       this.locationsToDisplay = this.getLineupLocations();
-      console.log(
-        "Agent changed locationsToDisplay => ",
-        this.locationsToDisplay
-      );
     },
     mapFilter: function () {
       this.locationsToDisplay = this.getLineupLocations();
-      console.log(
-        "Map changed locationsToDisplay => ",
-        this.locationsToDisplay
-      );
+      this.spikesToDisplay = this.getSpikeLoctions();
     },
   },
+  data() {
+    return {
+      mapDataManager: MapDataManager,
+    };
+  },
+  mounted() {
+    this.mapDataManager = new MapDataManager(MapType.BIND);
+    console.log("getSpikeLoctions", this.getSpikeLoctions());
+  },
   methods: {
-    filterChanged() {},
-    getMapManager(): MapDataManager {
-      return new MapDataManager(MapType.BIND);
+    getSpikeLoctions(): SpikeLocation[] {
+      let spikeLocations: SpikeLocation[] = new Array();
+      for (const [spikeKey, lineupKeys] of this.mapDataManager.spikeLineups) {
+        console.log(spikeKey);
+        let coordinate: Coordinate =
+          this.mapDataManager.coordinates.get(spikeKey);
+        spikeLocations.push(new SpikeLocation(coordinate, lineupKeys));
+      }
+      return spikeLocations;
     },
     getLineupLocations(): LineupLocation[] {
       let lineupLocationsMap: Map<string, LineupLocation> = new Map();
-      let mapMapManger: MapDataManager = this.getMapManager();
       var locationsFilteredByAbility: string[] = [];
       switch (this.abilityFilter) {
         case LineupType.VIPER_MOLLY:
-          locationsFilteredByAbility = mapMapManger.getViperMollys();
+          locationsFilteredByAbility = this.mapDataManager.getViperMollys();
           break;
         case LineupType.STANDARD_MOLLY:
-          locationsFilteredByAbility = mapMapManger.getStandardMollys();
+          locationsFilteredByAbility = this.mapDataManager.getStandardMollys();
           break;
         default:
           // return empty list early as nothing selected
           return [];
       }
       for (const key of locationsFilteredByAbility) {
-        let location: LocationInfo = mapMapManger.locations.get(key);
+        let location: LocationInfo = this.mapDataManager.locations.get(key);
         if (location) {
-          let coordinate: Coordinate = mapMapManger.coordinates.get(
+          let coordinate: Coordinate = this.mapDataManager.coordinates.get(
             location.coordinateKey
           );
           if (lineupLocationsMap.has(location.coordinateKey)) {
