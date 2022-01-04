@@ -1,0 +1,327 @@
+{
+    "mapKey": "bind",
+    "locations": [
+        {
+            "key": "bLongSpike",
+            "name": "B Site Long",
+            "description": "Default plant location for B site long.",
+            "coordinateKey": "bLongSpike",
+            "img": "images/bind/spikes/bLongSpike.png"
+        },
+        {
+            "key": "bHookahSpike",
+            "name": "B Site Hookah",
+            "description": "Default plant location for B site hookah.",
+            "coordinateKey": "bHookahSpike",
+            "img": "images/bind/spikes/bHookahSpike.png"
+        },
+        {
+            "key": "bMiddleSpike",
+            "name": "B Site Middle",
+            "description": "Default plant location for B site middle.",
+            "coordinateKey": "bMiddleSpike",
+            "img": "images/bind/spikes/bMiddleSpike.png"
+        },
+        {
+            "key": "bShortTPEndTwoBigBox2bLongSpike",
+            "name": "TP End Two Big Box to B Site Long plant",
+            "description": "",
+            "coordinateKey": "shortTPEndTwoBigBox",
+            "img": "images/bind/viper_mollys/bLongSpike/bShortTPEndTwoBigBox2bLongSpike.png"
+        },
+        {
+            "key": "bShortTPEndTwoBigBox2bHookahSpike",
+            "name": "TP End Two Big Box to B Site Hookah plant",
+            "description": "",
+            "coordinateKey": "shortTPEndTwoBigBox",
+            "img": "images/bind/viper_mollys/bHookahSpike/bShortTPEndTwoBigBox2bHookahSpike.png"
+        },
+        {
+            "key": "bShortTPEndTwoBigBox2bMiddleSpike",
+            "name": "TP End Two Big Box to B Site Middle plant",
+            "description": "",
+            "coordinateKey": "shortTPEndTwoBigBox",
+            "img": "images/bind/viper_mollys/bMiddleSpike/bShortTPEndTwoBigBox2bMiddleSpike.png"
+        },
+        {
+            "key": "bSeatBox2bLongSpike",
+            "name": "Seat Box to B Site Long plant",
+            "description": "",
+            "coordinateKey": "hookahSeatBox",
+            "img": "images/bind/viper_mollys/bLongSpike/bSeatBox2bLongSpike.png"
+        },
+        {
+            "key": "bSeatBox2bHookahSpike",
+            "name": "Seat Box to B Site Hookah plant",
+            "description": "",
+            "coordinateKey": "hookahSeatBox",
+            "img": "images/bind/viper_mollys/bHookahSpike/bSeatBox2bHookahSpike.png"
+        },
+        {
+            "key": "bSeatBox2bMiddleSpike",
+            "name": "Seat Box to B Site Middle plant",
+            "description": "",
+            "coordinateKey": "hookahSeatBox",
+            "img": "images/bind/viper_mollys/bMiddleSpike/bSeatBox2bMiddleSpike.png"
+        },
+        {
+            "key": "bStarFountain2bLongSpike",
+            "name": "Star Fountain to B Site Long plant",
+            "description": "",
+            "coordinateKey": "starFountain",
+            "img": "images/bind/viper_mollys/bLongSpike/bStarFountain2bLongSpike.png"
+        },
+        {
+            "key": "bStarFountain2bHookahSpike",
+            "name": "Star Fountain to B Site Hookah plant",
+            "description": "",
+            "coordinateKey": "starFountain",
+            "img": "images/bind/viper_mollys/bHookahSpike/bStarFountain2bHookahSpike.png"
+        },
+        {
+            "key": "bStarFountain2bMiddleSpike",
+            "name": "Star Fountain to B Site Middle plant",
+            "description": "",
+            "coordinateKey": "starFountain",
+            "img": "images/bind/viper_mollys/bMiddleSpike/bStarFountain2bMiddleSpike.png"
+        },
+        {
+            "key": "bLongCorner2bLongSpike",
+            "name": "Long Corner to B Site Long plant",
+            "description": "",
+            "coordinateKey": "longCorner",
+            "img": "images/bind/viper_mollys/bLongSpike/bLongCorner2bLongSpike.png"
+        },
+        {
+            "key": "bLongCorner2bHookahSpike",
+            "name": "Long Corner to B Site Hookah plant",
+            "description": "",
+            "coordinateKey": "longCorner",
+            "img": "images/bind/viper_mollys/bHookahSpike/bLongCorner2bHookahSpike.png"
+        },
+        {
+            "key": "bLongCorner2bMiddleSpike",
+            "name": "Long Corner to B Site Middle plant",
+            "description": "",
+            "coordinateKey": "longCorner",
+            "img": "images/bind/viper_mollys/bMiddleSpike/bLongCorner2bMiddleSpike.png"
+        },
+        {
+            "key": "bLongTPLeft2bLongSpike",
+            "name": "Long TP Left to B Site Long plant",
+            "description": "",
+            "coordinateKey": "longTPLeft",
+            "img": "images/bind/viper_mollys/bLongSpike/bLongTPLeft2bLongSpike.png"
+        },
+        {
+            "key": "bLongTPLeft2bHookahSpike",
+            "name": "Long TP Left to B Site Hookah plant",
+            "description": "",
+            "coordinateKey": "longTPLeft",
+            "img": "images/bind/viper_mollys/bHookahSpike/bLongTPLeft2bHookahSpike.png"
+        },
+        {
+            "key": "bLongTPLeft2bMiddleSpike",
+            "name": "Long TP Left to B Site Middle plant",
+            "description": "",
+            "coordinateKey": "longTPLeft",
+            "img": "images/bind/viper_mollys/bMiddleSpike/bLongTPLeft2bMiddleSpike.png"
+        },
+        {
+            "key": "bCTRight2bLongSpike",
+            "name": "CT Right to B Site Long plant",
+            "description": "",
+            "coordinateKey": "ctRight",
+            "img": "images/bind/viper_mollys/bLongSpike/bCTRight2bLongSpike.png"
+        },
+        {
+            "key": "bCTRight2bHookahSpike",
+            "name": "CT Right to B Site Hookah plant",
+            "description": "",
+            "coordinateKey": "ctRight",
+            "img": "images/bind/viper_mollys/bHookahSpike/bCTRight2bHookahSpike.png"
+        },
+        {
+            "key": "bCTRight2bMiddleSpike",
+            "name": "CT Right to B Site Middle plant",
+            "description": "",
+            "coordinateKey": "ctRight",
+            "img": "images/bind/viper_mollys/bMiddleSpike/bCTRight2bMiddleSpike.png"
+        },
+        {
+            "key": "bLongTPEndLeft2bLongSpike",
+            "name": "Long TP End Left to B Site Long plant",
+            "description": "",
+            "coordinateKey": "longTPEndLeft",
+            "img": "images/bind/viper_mollys/bLongSpike/bLongTPEndLeft2bLongSpike.png"
+        },
+        {
+            "key": "bUnderPalms2bLongSpike",
+            "name": "Under Palms to B Site Long plant",
+            "description": "",
+            "coordinateKey": "underPalms",
+            "img": "images/bind/viper_mollys/bLongSpike/bUnderPalms2bLongSpike.png"
+        },
+        {
+            "key": "bShortTPStartTwoBigBox2bLongSpike",
+            "name": "Short TP Start Two Big Box to B Site Long plant",
+            "description": "",
+            "coordinateKey": "shortTPStartTwoBigBox",
+            "img": "images/bind/viper_mollys/bLongSpike/bShortTPStartTwoBigBox2bLongSpike.png"
+        },
+        {
+            "key": "bASiteShowerBoxes2bLongSpike",
+            "name": "A Site Shower Boxes to B Site Long plant",
+            "description": "",
+            "coordinateKey": "aSiteShowerBoxes",
+            "img": "images/bind/viper_mollys/bLongSpike/bASiteShowerBoxes2bLongSpike.png"
+        },
+        {
+            "key": "bCTLeft2bLongSpike",
+            "name": "CT Left to B Site Long plant",
+            "description": "",
+            "coordinateKey": "ctLeft",
+            "img": "images/bind/viper_mollys/bLongSpike/bCTLeft2bLongSpike.png"
+        }
+    ],
+    "coordinates": [
+        {
+            "key": "bLongSpike",
+            "lat": -80.41209826354239,
+            "lng": 66.47512285950722
+        },
+        {
+            "key": "bHookahSpike",
+            "lat": -81.70012390483664,
+            "lng": 77.51243857024639
+        },
+        {
+            "key": "bMiddleSpike",
+            "lat": -79.99907643929413,
+            "lng": 71.06109875310324
+        },
+        {
+            "key": "shortTPEndTwoBigBox",
+            "lat": -123.375,
+            "lng": 106.98750960237759
+        },
+        {
+            "key": "hookahSeatBox",
+            "lat": -129.07850647704555,
+            "lng": 76.84375
+        },
+        {
+            "key": "starFountain",
+            "lat": -160.82636104468017,
+            "lng": 57.07498658213433
+        },
+        {
+            "key": "longCorner",
+            "lat": -146.474448153804081,
+            "lng": 42.650184289260835
+        },
+        {
+            "key": "longTPLeft",
+            "lat": -121.08750057220459,
+            "lng": 33.91377977700533
+        },
+        {
+            "key": "ctRight",
+            "lat": -28.350006103515625,
+            "lng": 118.52611527734149
+        },
+        {
+            "key": "longTPEndLeft",
+            "lat": -167.09944433675807,
+            "lng": 218.3997734857407
+        },
+        {
+            "key": "underPalms",
+            "lat": -152.30064668334643,
+            "lng": 183.05021786575372
+        },
+        {
+            "key": "shortTPStartTwoBigBox",
+            "lat": -119.98706824159473,
+            "lng": 162.71258063450878
+        },
+        {
+            "key": "aSiteShowerBoxes",
+            "lat": -92.68657739355562,
+            "lng": 190.85012285950722
+        },
+        {
+            "key": "ctLeft",
+            "lat": -34.75000762939453,
+            "lng": 146.2113458680567
+        }
+    ],
+    "spikeLineups": [
+        {
+            "spikeKey": "bLongSpike",
+            "lineupKeys": [
+                "bShortTPEndTwoBigBox2bLongSpike",
+                "bSeatBox2bLongSpike",
+                "bStarFountain2bLongSpike",
+                "bLongCorner2bLongSpike",
+                "bLongTPLeft2bLongSpike",
+                "bCTRight2bLongSpike",
+                "bLongTPEndLeft2bLongSpike",
+                "bUnderPalms2bLongSpike",
+                "bShortTPStartTwoBigBox2bLongSpike",
+                "bASiteShowerBoxes2bLongSpike",
+                "bCTLeft2bLongSpike"
+            ]
+        },
+        {
+            "spikeKey": "bHookahSpike",
+            "lineupKeys": [
+                "bShortTPEndTwoBigBox2bHookahSpike",
+                "bSeatBox2bHookahSpike",
+                "bStarFountain2bHookahSpike",
+                "bLongCorner2bHookahSpike",
+                "bLongTPLeft2bHookahSpike",
+                "bCTRight2bHookahSpike"
+            ]
+        },
+        {
+            "spikeKey": "bMiddleSpike",
+            "lineupKeys": [
+                "bShortTPEndTwoBigBox2bMiddleSpike",
+                "bSeatBox2bMiddleSpike",
+                "bStarFountain2bMiddleSpike",
+                "bLongCorner2bMiddleSpike",
+                "bLongTPLeft2bMiddleSpike",
+                "bCTRight2bMiddleSpike"
+            ]
+        }
+    ],
+    "viperMollys": [
+        "bTwoBigBox2bLongSpike",
+        "bSeatBox2bLongSpike",
+        "bStarFountain2bLongSpike",
+        "bLongCorner2bLongSpike",
+        "bLongTPLeft2bLongSpike",
+        "bCTRight2bLongSpike",
+        "bLongTPEndLeft2bLongSpike",
+        "bUnderPalms2bLongSpike",
+        "bShortTPStartTwoBigBox2bLongSpike",
+        "bASiteShowerBoxes2bLongSpike",
+        "bCTLeft2bLongSpike",
+        "bShortTPEndTwoBigBox2bHookahSpike",
+        "bSeatBox2bHookahSpike",
+        "bStarFountain2bHookahSpike",
+        "bLongCorner2bHookahSpike",
+        "bLongTPLeft2bHookahSpike",
+        "bCTRight2bHookahSpike",
+        "bShortTPEndTwoBigBox2bMiddleSpike",
+        "bSeatBox2bMiddleSpike",
+        "bStarFountain2bMiddleSpike",
+        "bLongCorner2bMiddleSpike",
+        "bLongTPLeft2bMiddleSpike",
+        "bCTRight2bMiddleSpike"
+    ],
+    "standardMollys": [
+        ""
+    ]
+}

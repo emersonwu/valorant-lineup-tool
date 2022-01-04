@@ -1,0 +1,446 @@
+{
+    "mapKey": "bind",
+    "locations": [
+        {
+            "key": "aTruckSpike",
+            "name": "A Site Truck",
+            "description": "Default plant location for A site truck.",
+            "coordinateKey": "truckSpike",
+            "img": "images/bind/spikes/aTruckSpike.png"
+        },
+        {
+            "key": "aShowersSpike",
+            "name": "A Site Showers",
+            "description": "Default plant location for A site showers.",
+            "coordinateKey": "showersSpike",
+            "img": "images/bind/spikes/aShowersSpike.png"
+        },
+        {
+            "key": "aCloseShowersSpike",
+            "name": "A Site Close Showers",
+            "description": "Default plant location for A site close showers.",
+            "coordinateKey": "closeShowersSpike",
+            "img": "images/bind/spikes/aCloseShowersSpike.png"
+        },
+        {
+            "key": "aCastleCorner2aTruckSpike",
+            "name": "Castle Corner to A Site Truck plant",
+            "description": "",
+            "coordinateKey": "castleCorner",
+            "img": "images/bind/viper_mollys/aTruckSpike/aCastleCorner2aTruckSpike.png"
+        },
+        {
+            "key": "aCastleCorner2aShowersSpike",
+            "name": "Castle Corner to A Site Showers plant",
+            "description": "",
+            "coordinateKey": "castleCorner",
+            "img": "images/bind/viper_mollys/aShowersSpike/aCastleCorner2aShowersSpike.png"
+        },
+        {
+            "key": "aCastleCorner2aCloseShowersSpike",
+            "name": "Castle Corner to A Site Close Showers plant",
+            "description": "",
+            "coordinateKey": "castleCorner",
+            "img": "images/bind/viper_mollys/aCloseShowersSpike/aCastleCorner2aCloseShowersSpike.png"
+        },
+        {
+            "key": "aUnderPalms2aTruckSpike",
+            "name": "Under Palms to A Site Truck plant",
+            "description": "",
+            "coordinateKey": "underPalms",
+            "img": "images/bind/viper_mollys/aTruckSpike/aUnderPalms2aTruckSpike.png"
+        },
+        {
+            "key": "aUnderPalms2aShowersSpike",
+            "name": "Under Palms to A Site Showers plant",
+            "description": "",
+            "coordinateKey": "underPalms",
+            "img": "images/bind/viper_mollys/aShowersSpike/aUnderPalms2aShowersSpike.png"
+        },
+        {
+            "key": "aUnderPalms2aCloseShowersSpike",
+            "name": "Under Palms to A Site Close Showers plant",
+            "description": "",
+            "coordinateKey": "underPalms",
+            "img": "images/bind/viper_mollys/aCloseShowersSpike/aUnderPalms2aCloseShowersSpike.png"
+        },
+        {
+            "key": "aSmallBox2aTruckSpike",
+            "name": "Small Box to A Site Truck plant",
+            "description": "",
+            "coordinateKey": "smallBox",
+            "img": "images/bind/viper_mollys/aTruckSpike/aSmallBox2aTruckSpike.png"
+        },
+        {
+            "key": "aSmallBox2aShowersSpike",
+            "name": "Small Box to A Site Showers plant",
+            "description": "",
+            "coordinateKey": "smallBox",
+            "img": "images/bind/viper_mollys/aShowersSpike/aSmallBox2aShowersSpike.png"
+        },
+        {
+            "key": "aSmallBoxLeft2aCloseShowersSpike",
+            "name": "Small Box to A Site Close Showers plant",
+            "description": "",
+            "coordinateKey": "smallBoxLeft",
+            "img": "images/bind/viper_mollys/aCloseShowersSpike/aSmallBoxLeft2aCloseShowersSpike.png"
+        },
+        {
+            "key": "aBigBox2aTruckSpike",
+            "name": "Big Box to A Site Truck plant",
+            "description": "",
+            "coordinateKey": "bigBox",
+            "img": "images/bind/viper_mollys/aTruckSpike/aBigBox2aTruckSpike.png"
+        },
+        {
+            "key": "aBigBox2aShowersSpike",
+            "name": "Big Box to A Site Showers plant",
+            "description": "",
+            "coordinateKey": "bigBox",
+            "img": "images/bind/viper_mollys/aShowersSpike/aBigBox2aShowersSpike.png"
+        },
+        {
+            "key": "aBigBox2aCloseShowersSpike",
+            "name": "Big Box to A Site Close Showers plant",
+            "description": "",
+            "coordinateKey": "bigBox",
+            "img": "images/bind/viper_mollys/aCloseShowersSpike/aBigBox2aCloseShowersSpike.png"
+        },
+        {
+            "key": "aTwoBox2aTruckSpike",
+            "name": "Two Box to A Site Truck plant",
+            "description": "",
+            "coordinateKey": "twoBox",
+            "img": "images/bind/viper_mollys/aTruckSpike/aTwoBox2aTruckSpike.png"
+        },
+        {
+            "key": "aTwoBox2aShowersSpike",
+            "name": "Two Box to A Site Showers plant",
+            "description": "",
+            "coordinateKey": "twoBox",
+            "img": "images/bind/viper_mollys/aShowersSpike/aTwoBox2aShowersSpike.png"
+        },
+        {
+            "key": "aTwoBox2aCloseShowersSpike",
+            "name": "Two Box to A Site Close Showers plant",
+            "description": "",
+            "coordinateKey": "twoBox",
+            "img": "images/bind/viper_mollys/aCloseShowersSpike/aTwoBox2aCloseShowersSpike.png"
+        },
+        {
+            "key": "aBarrel2aTruckSpike",
+            "name": "Barrel to A Site Truck plant",
+            "description": "",
+            "coordinateKey": "barrel",
+            "img": "images/bind/viper_mollys/aTruckSpike/aBarrel2aTruckSpike.png"
+        },
+        {
+            "key": "aBarrel2aShowersSpike",
+            "name": "Barrel to A Site Showers plant",
+            "description": "",
+            "coordinateKey": "barrel",
+            "img": "images/bind/viper_mollys/aShowersSpike/aBarrel2aShowersSpike.png"
+        },
+        {
+            "key": "aBarrel2aCloseShowersSpike",
+            "name": "Barrel to A Site Close Showers plant",
+            "description": "",
+            "coordinateKey": "barrel",
+            "img": "images/bind/viper_mollys/aCloseShowersSpike/aBarrel2aCloseShowersSpike.png"
+        },
+        {
+            "key": "aUnderLamp2aTruckSpike",
+            "name": "Under Lamp to A Site Truck plant",
+            "description": "",
+            "coordinateKey": "underLamp",
+            "img": "images/bind/viper_mollys/aTruckSpike/aUnderLamp2aTruckSpike.png"
+        },
+        {
+            "key": "aUnderLamp2aShowersSpike",
+            "name": "Under Lamp to A Site Showers plant",
+            "description": "",
+            "coordinateKey": "underLamp",
+            "img": "images/bind/viper_mollys/aShowersSpike/aUnderLamp2aShowersSpike.png"
+        },
+        {
+            "key": "aCloseTP2aTruckSpike",
+            "name": "Close TP to A Site Truck plant",
+            "description": "",
+            "coordinateKey": "closeTP",
+            "img": "images/bind/viper_mollys/aTruckSpike/aCloseTP2aTruckSpike.png"
+        },
+        {
+            "key": "aCloseTP2aShowersSpike",
+            "name": "Close TP to A Site Showers plant",
+            "description": "",
+            "coordinateKey": "closeTP",
+            "img": "images/bind/viper_mollys/aShowersSpike/aCloseTP2aShowersSpike.png"
+        },
+        {
+            "key": "aHookah2aTruckSpike",
+            "name": "Hookah to A Site Truck plant",
+            "description": "",
+            "coordinateKey": "hookah",
+            "img": "images/bind/viper_mollys/aTruckSpike/aHookah2aTruckSpike.png"
+        },
+        {
+            "key": "aHookah2aShowersSpike",
+            "name": "Hookah to A Site Showers plant",
+            "description": "",
+            "coordinateKey": "hookah",
+            "img": "images/bind/viper_mollys/aShowersSpike/aHookah2aShowersSpike.png"
+        },
+        {
+            "key": "aBSiteFront2aTruckSpike",
+            "name": "B Site Front to A Site Truck plant",
+            "description": "",
+            "coordinateKey": "bSiteFront",
+            "img": "images/bind/viper_mollys/aTruckSpike/aBSiteFront2aTruckSpike.png"
+        },
+        {
+            "key": "aBSiteFront2aShowersSpike",
+            "name": "B Site Front to A Site Showers plant",
+            "description": "",
+            "coordinateKey": "bSiteFront",
+            "img": "images/bind/viper_mollys/aShowersSpike/aBSiteFront2aShowersSpike.png"
+        },
+        {
+            "key": "aBSiteBack2aTruckSpike",
+            "name": "B Site Back to A Site Truck plant",
+            "description": "",
+            "coordinateKey": "bSiteBack",
+            "img": "images/bind/viper_mollys/aTruckSpike/aBSiteBack2aTruckSpike.png"
+        },
+        {
+            "key": "aBSiteBack2aShowersSpike",
+            "name": "B Site Back to A Site Showers plant",
+            "description": "",
+            "coordinateKey": "bSiteBack",
+            "img": "images/bind/viper_mollys/aShowersSpike/aBSiteBack2aShowersSpike.png"
+        },
+        {
+            "key": "aCTRight2aTruckSpike",
+            "name": "CT Right to A Site Truck plant",
+            "description": "",
+            "coordinateKey": "ctRight",
+            "img": "images/bind/viper_mollys/aTruckSpike/aCTRight2aTruckSpike.png"
+        },
+        {
+            "key": "aCTRight2aShowersSpike",
+            "name": "CT Right to A Site Showers plant",
+            "description": "",
+            "coordinateKey": "ctRight",
+            "img": "images/bind/viper_mollys/aShowersSpike/aCTRight2aShowersSpike.png"
+        },
+        {
+            "key": "aCTLeft2aTruckSpike",
+            "name": "CT Left to A Site Truck plant",
+            "description": "",
+            "coordinateKey": "ctLeft",
+            "img": "images/bind/viper_mollys/aTruckSpike/aCTLeft2aTruckSpike.png"
+        },
+        {
+            "key": "aCTLeft2aShowersSpike",
+            "name": "CT Left to A Site Showers plant",
+            "description": "",
+            "coordinateKey": "ctLeft",
+            "img": "images/bind/viper_mollys/aShowersSpike/aCTLeft2aShowersSpike.png"
+        },
+        {
+            "key": "aLongTPLeft2aTruckSpike",
+            "name": "Far TP to A Site Truck plant",
+            "description": "",
+            "coordinateKey": "longTPLeft",
+            "img": "images/bind/viper_mollys/aTruckSpike/aLongTPLeft2aTruckSpike.png"
+        },
+        {
+            "key": "aLongTPLeft2aShowersSpike",
+            "name": "Far TP to A Site Showers plant",
+            "description": "",
+            "coordinateKey": "longTPLeft",
+            "img": "images/bind/viper_mollys/aShowersSpike/aLongTPLeft2aShowersSpike.png"
+        }
+    ],
+    "coordinates": [
+        {
+            "key": "aTruckSpike",
+            "lat": -92.96882696339216,
+            "lng": 174.8000355160656
+        },
+        {
+            "key": "aShowersSpike",
+            "lat": -89.85006004389533,
+            "lng": 194.01248658213433
+        },
+        {
+            "key": "aCloseShowersSpike",
+            "lat": -99.51231605126803,
+            "lng": 197.437448172624
+        },
+        {
+            "key": "castleCorner",
+            "lat": -135.7371480677714,
+            "lng": 176.03757293987525
+        },
+        {
+            "key": "underPalms",
+            "lat": -152.30064668334643,
+            "lng": 183.05021786575372
+        },
+        {
+            "key": "smallBox",
+            "lat": -177.68011199148373,
+            "lng": 194.05002557644914
+        },
+        {
+            "key": "smallBoxLeft",
+            "lat": -176.59351910982355,
+            "lng": 193.13118591851276
+        },
+        {
+            "key": "bigBox",
+            "lat": -160.8105759151961,
+            "lng": 219.85658658876247
+        },
+        {
+            "key": "twoBox",
+            "lat": -149.77878764858175,
+            "lng": 203.88369101153012
+        },
+        {
+            "key": "barrel",
+            "lat": -144.82373856377782,
+            "lng": 146.1833000747978
+        },
+        {
+            "key": "underLamp",
+            "lat": -138.31857915371884,
+            "lng": 129.35003659794066
+        },
+        {
+            "key": "closeTP",
+            "lat": -111.54602792555553,
+            "lng": 96.57931945254155
+        },
+        {
+            "key": "hookah",
+            "lat": -126.15502144851,
+            "lng": 73.18240153067082
+        },
+        {
+            "key": "bSiteFront",
+            "lat": -80.4375,
+            "lng": 75.7505330815579
+        },
+        {
+            "key": "bSiteBack",
+            "lat": -72.73750114440918,
+            "lng": 73.70109357972643
+        },
+        {
+            "key": "ctRight",
+            "lat": -28.350006103515625,
+            "lng": 118.52611527734149
+        },
+        {
+            "key": "ctLeft",
+            "lat": -34.75000762939453,
+            "lng": 146.2113458680567
+        },
+        {
+            "key": "longTPLeft",
+            "lat": -121.08750057220459,
+            "lng": 33.91377977700533
+        }
+    ],
+    "spikeLineups": [
+        {
+            "spikeKey": "aTruckSpike",
+            "lineupKeys": [
+                "aCastleCorner2aTruckSpike",
+                "aUnderPalms2aTruckSpike",
+                "aSmallBox2aTruckSpike",
+                "aBigBox2aTruckSpike",
+                "aTwoBox2aTruckSpike",
+                "aBarrel2aTruckSpike",
+                "aUnderLamp2aTruckSpike",
+                "aCloseTP2aTruckSpike",
+                "aHookah2aTruckSpike",
+                "aBSiteFront2aTruckSpike",
+                "aBSiteBack2aTruckSpike",
+                "aCTRight2aTruckSpike",
+                "aCTLeft2aTruckSpike",
+                "aLongTPLeft2aTruckSpike"
+            ]
+        },
+        {
+            "spikeKey": "aShowersSpike",
+            "lineupKeys": [
+                "aCastleCorner2aShowersSpike",
+                "aUnderPalms2aShowersSpike",
+                "aSmallBox2aShowersSpike",
+                "aBigBox2aShowersSpike",
+                "aTwoBox2aShowersSpike",
+                "aBarrel2aShowersSpike",
+                "aUnderLamp2aShowersSpike",
+                "aCloseTP2aShowersSpike",
+                "aHookah2aShowersSpike",
+                "aBSiteFront2aShowersSpike",
+                "aBSiteBack2aShowersSpike",
+                "aCTRight2aShowersSpike",
+                "aCTLeft2aShowersSpike",
+                "aLongTPLeft2ShowersSpike"
+            ]
+        },
+        {
+            "spikeKey": "aCloseShowersSpike",
+            "lineupKeys": [
+                "aCastleCorner2aCloseShowersSpike",
+                "aUnderPalms2aCloseShowersSpike",
+                "aSmallBoxLeft2aCloseShowersSpike",
+                "aBigBox2aCloseShowersSpike",
+                "aTwoBox2aCloseShowersSpike",
+                "aBarrel2aCloseShowersSpike"
+            ]
+        }
+    ],
+    "viperMollys": [
+        "aCastleCorner2aTruckSpike",
+        "aUnderPalms2aTruckSpike",
+        "aSmallBox2aTruckSpike",
+        "aBigBox2aTruckSpike",
+        "aTwoBox2aTruckSpike",
+        "aBarrel2aTruckSpike",
+        "aUnderLamp2aTruckSpike",
+        "aCloseTP2aTruckSpike",
+        "aHookah2aTruckSpike",
+        "aBSiteFront2aTruckSpike",
+        "aBSiteBack2aTruckSpike",
+        "aCTRight2aTruckSpike",
+        "aCTLeft2aTruckSpike",
+        "aFarTP2aTruckSpike",
+        "aCastleCorner2aShowersSpike",
+        "aUnderPalms2aShowersSpike",
+        "aSmallBox2aShowersSpike",
+        "aBigBox2aShowersSpike",
+        "aTwoBox2aShowersSpike",
+        "aBarrel2aShowersSpike",
+        "aUnderLamp2aShowersSpike",
+        "aCloseTP2aShowersSpike",
+        "aHookah2aShowersSpike",
+        "aBSiteFront2aShowersSpike",
+        "aBSiteBack2aShowersSpike",
+        "aCTRight2aShowersSpike",
+        "aCTLeft2aShowersSpike",
+        "aFarTP2aShowersSpike",
+        "aCastleCorner2aCloseShowersSpike",
+        "aUnderPalms2aCloseShowersSpike",
+        "aSmallBoxLeft2aCloseShowersSpike",
+        "aBigBox2aCloseShowersSpike",
+        "aTwoBox2aCloseShowersSpike",
+        "aBarrel2aCloseShowersSpike"
+    ],
+    "standardMollys": [
+        ""
+    ]
+}

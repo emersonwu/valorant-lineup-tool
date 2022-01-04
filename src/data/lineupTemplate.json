@@ -1,0 +1,40 @@
+{
+    "mapKey": "bind",
+    "locations": [
+        {
+            "key": "bLongSpike",
+            "name": "A Site Truck",
+            "description": "Default plant location for A site truck.",
+            "coordinateKey": "aTruckSpike",
+            "img": "images/bind/spikes/aTruckSpike.png"
+        },
+        {
+            "key": "aFarTP2aShowersSpike",
+            "name": "Far TP to A Site Showers plant",
+            "description": "",
+            "coordinateKey": "aFarTP",
+            "img": "images/bind/viper_mollys/aShowersSpike/aFarTP2aShowersSpike.png"
+        }
+    ],
+    "coordinates": [
+        {
+            "key": "bLongSpike",
+            "lat": -92.96882696339216,
+            "lng": 174.8000355160656
+        }
+    ],
+    "spikeLineups": [
+        {
+            "spikeKey": "bLongSpike",
+            "lineupKeys": [
+                "aCastleCorner2aTruckSpike"
+            ]
+        }
+    ],
+    "viperMollys": [
+        "aCastleCorner2aTruckSpike"
+    ],
+    "standardMollys": [
+        ""
+    ]
+}
