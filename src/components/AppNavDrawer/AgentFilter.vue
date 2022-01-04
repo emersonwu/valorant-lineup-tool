@@ -41,10 +41,12 @@ export default Vue.extend({
   },
   data() {
     return {
-      model: null,
+      model: 0,
     };
   },
-
+  created() {
+    this.agentFilter = AgentType.VIPER;
+  },
   computed: {
     agentFilter: {
       get(): boolean {

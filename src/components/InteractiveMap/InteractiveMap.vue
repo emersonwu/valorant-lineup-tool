@@ -25,14 +25,18 @@
         :lineupLocation="location"
       />
     </div>
-    <!-- TODO: Remove LatLongMarker Below -->
-    <lat-long-marker />
+    <l-control class="image-credit" position="bottomleft">
+      Lineup Image Credits:
+      <a href="https://www.youtube.com/channel/UCfZAjtpnTjFkF4_onR6zw6A"
+        >JinZled</a
+      >
+    </l-control>
   </l-map>
 </template>
 
 <script lang="ts">
 import { CRS } from "leaflet";
-import { LMap, LTileLayer } from "vue2-leaflet";
+import { LControl, LMap, LTileLayer } from "vue2-leaflet";
 import { FilterMutations } from "@/store/filter/mutations";
 
 import "leaflet/dist/leaflet.css";
@@ -41,7 +45,6 @@ import SpikeMarker from "./SpikeMarker.vue";
 import LineupMarker from "./LineupMarker.vue";
 import SpikeLocation from "@/interfaces/SpikeLocation";
 import LineupLocation from "@/interfaces/LineupLocation";
-import LatLongMarker from "@/components/DeveloperTools/LatLongMarker.vue";
 
 export default {
   name: "InteractiveMap",
@@ -49,8 +52,8 @@ export default {
     LMap,
     LTileLayer,
     LineupMarker,
-    LatLongMarker,
     SpikeMarker,
+    LControl,
   },
   data() {
     return {
@@ -84,5 +87,12 @@ export default {
   z-index: 1;
   width: 100%;
   background: white;
+}
+.image-credit {
+  background: #fff;
+  padding: 0 0.5em;
+  border: 1px solid #aaa;
+  border-radius: 0.1em;
+  font-size: 20px;
 }
 </style>

@@ -41,10 +41,12 @@ export default Vue.extend({
   },
   data() {
     return {
-      model: null,
+      model: 2,
     };
   },
-
+  created() {
+    this.abilityFilter = LineupType.VIPER_MOLLY;
+  },
   computed: {
     abilityFilter: {
       get(): LineupType {

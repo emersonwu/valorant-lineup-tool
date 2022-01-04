@@ -60,8 +60,11 @@ export default Vue.extend({
   },
   data() {
     return {
-      model: null,
+      model: 1,
     };
+  },
+  created() {
+    this.mapFilter = MapType.BIND;
   },
   computed: {
     mapFilter: {
