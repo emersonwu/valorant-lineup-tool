@@ -8,6 +8,7 @@ const state: FilterState = {
     mapFilter: null,
     agentFilter: null,
     lineupTypeFilter: null,
+    spikeFilter: null,
     spikesToDisplay: [],
     locationsToDisplay: [],
 }

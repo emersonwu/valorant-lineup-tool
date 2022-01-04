@@ -8,6 +8,7 @@ export interface FilterState {
     mapFilter: MapType;
     agentFilter: AgentType;
     lineupTypeFilter: LineupType;
+    spikeFilter: string;
     spikesToDisplay: SpikeLocation[];
     locationsToDisplay: LineupLocation[];
 }

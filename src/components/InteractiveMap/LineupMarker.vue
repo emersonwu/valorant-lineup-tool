@@ -39,11 +39,6 @@ export default {
       required: true,
     },
   },
-  methods: {
-    alertClick() {
-      alert("Click!");
-    },
-  },
   computed: {
     getMarkerLatLng(): Number[] {
       return [

@@ -17,6 +17,9 @@ export const getters: GetterTree<FilterState, RootState> = {
     getLineupTypeFilter(state): LineupType {
         return state.lineupTypeFilter;
     },
+    getSpikeFilter(state): string {
+        return state.spikeFilter;
+    },
     getSpikesToDisplay(state): SpikeLocation[] {
         return state.spikesToDisplay;
     },

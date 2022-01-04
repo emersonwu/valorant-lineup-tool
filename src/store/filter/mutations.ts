@@ -10,6 +10,7 @@ export enum FilterMutations {
     SET_MAP_FILTER = "SET_MAP_FILTER",
     SET_AGENT_FILTER = "SET_AGENT_FILTER",
     SET_LINEUP_TYPE_FILTER = "SET_LINEUP_TYPE_FILTER",
+    SET_SPIKE_FILTER = "SET_SPIKE_FILTER",
     SET_SPIKES_TO_DISPLAY = "SET_SPIKES_TO_DISPLAY",
     SET_LOCATIONS_TO_DISPLAY = "SET_LOCATIONS_TO_DISPLAY",
 }
@@ -23,6 +24,9 @@ export const mutations: MutationTree<FilterState> = {
     },
     [FilterMutations.SET_LINEUP_TYPE_FILTER](state, payload: LineupType) {
         state.lineupTypeFilter = payload;
+    },
+    [FilterMutations.SET_SPIKE_FILTER](state, payload: string) {
+        state.spikeFilter = payload;
     },
     [FilterMutations.SET_SPIKES_TO_DISPLAY](state, payload: SpikeLocation[]) {
         state.spikesToDisplay = payload;

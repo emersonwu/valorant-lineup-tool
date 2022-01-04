@@ -8,6 +8,13 @@ export default class Icons {
         popupAnchor: [0, -50],
     });
 
+    static selectedSpike = L.icon({
+        iconUrl: "markers/selected-spike-marker.png",
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
+        popupAnchor: [0, -50],
+    });
+
     static brimstoneMolly = L.icon({
         iconUrl: "markers/brimstone-molly-marker.png",
         iconSize: [32, 32],

@@ -108,6 +108,14 @@ export default Vue.extend({
         this.$store.commit(FilterMutations.SET_MAP_FILTER, value);
       },
     },
+    spikeFilter: {
+      get(): string {
+        return this.$store.getters.getSpikeFilter;
+      },
+      set(value: string): void {
+        this.$store.commit(FilterMutations.SET_SPIKE_FILTER, value);
+      },
+    },
     spikesToDisplay: {
       get(): SpikeLocation[] {
         return this.$store.getters.getSpikesToDisplay;
@@ -137,6 +145,9 @@ export default Vue.extend({
       this.locationsToDisplay = this.getLineupLocations();
       this.spikesToDisplay = this.getSpikeLoctions();
     },
+    spikeFilter: function () {
+      this.locationsToDisplay = this.getLineupLocations();
+    },
   },
   data() {
     return {
@@ -145,16 +156,20 @@ export default Vue.extend({
   },
   mounted() {
     this.mapDataManager = new MapDataManager(MapType.BIND);
-    console.log("getSpikeLoctions", this.getSpikeLoctions());
   },
   methods: {
     getSpikeLoctions(): SpikeLocation[] {
       let spikeLocations: SpikeLocation[] = new Array();
       for (const [spikeKey, lineupKeys] of this.mapDataManager.spikeLineups) {
-        console.log(spikeKey);
         let coordinate: Coordinate =
           this.mapDataManager.coordinates.get(spikeKey);
-        spikeLocations.push(new SpikeLocation(coordinate, lineupKeys));
+        let spikeLocationInfo: LocationInfo =
+          this.mapDataManager.locations.get(spikeKey);
+        let name: string = spikeLocationInfo.name;
+        let img: string = spikeLocationInfo.img;
+        spikeLocations.push(
+          new SpikeLocation(spikeKey, name, img, coordinate, lineupKeys)
+        );
       }
       return spikeLocations;
     },
@@ -173,6 +188,14 @@ export default Vue.extend({
           return [];
       }
       for (const key of locationsFilteredByAbility) {
+        if (this.spikeFilter != null) {
+          let spikeLineups: string[] = this.mapDataManager.spikeLineups.get(
+            this.spikeFilter
+          );
+          if (!spikeLineups.includes(key)) {
+            continue;
+          }
+        }
         let location: LocationInfo = this.mapDataManager.locations.get(key);
         if (location) {
           let coordinate: Coordinate = this.mapDataManager.coordinates.get(
