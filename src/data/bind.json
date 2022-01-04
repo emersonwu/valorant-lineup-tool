@@ -6,14 +6,14 @@
             "name": "A Site Truck",
             "description": "Default plant location for A site truck.",
             "coordinateKey": "aTruckSpike",
-            "img": "aTruckSpike.png"
+            "img": "images/bind/spikes/aTruckSpike.png"
         },
         {
             "key": "aShowersSpike",
             "name": "A Site Showers",
             "description": "Default plant location for A site showers.",
             "coordinateKey": "aShowersSpike",
-            "img": "aShowersSpike.png"
+            "img": "images/bind/spikes/aShowersSpike.png"
         },
         {
             "key": "aCastleCorner2aTruckSpike",

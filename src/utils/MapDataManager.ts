@@ -59,5 +59,4 @@ export default class MapDataManager {
     public getStandardMollys(): string[] {
         return this.mapJson.standardMollys;
     }
-
 }

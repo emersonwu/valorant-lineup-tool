@@ -29,6 +29,15 @@
     </v-list-item>
     <v-divider></v-divider>
 
+    <!-- Spike -->
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title class="nav-drawer-header2">Spike</v-list-item-title>
+        <spike-filter />
+      </v-list-item-content>
+    </v-list-item>
+    <v-divider></v-divider>
+
     <!-- Hero -->
     <v-list-item>
       <v-list-item-content>
@@ -55,6 +64,7 @@
 import { FilterMutations } from "@/store/filter/mutations";
 import { AppMutations } from "@/store/app/mutations";
 import MapFilter from "./MapFilter.vue";
+import SpikeFilter from "./SpikeFilter.vue";
 import AgentFilter from "./AgentFilter.vue";
 import AbilityFilter from "./AbilityFilter.vue";
 import MapDataManager from "@/utils/MapDataManager";
@@ -72,6 +82,7 @@ export default Vue.extend({
   name: "AppNavDrawer",
   components: {
     MapFilter,
+    SpikeFilter,
     AgentFilter,
     AbilityFilter,
   },
